@@ -13,7 +13,7 @@ export default function More({ contents }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 text-black w-full">
         {contents.map((item, index) => (
           <Link
-            href={`/gotoDestination/${item.slug}`}
+            href={`/destinations/${item.slug}`}
             className="flex flex-col gap-3 cursor-pointer group"
             key={index}
           >

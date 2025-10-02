@@ -4,8 +4,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function OnePackageScreen({ Package }) {
   return (
@@ -130,12 +132,15 @@ export default function OnePackageScreen({ Package }) {
         <div className="md:w-1/3 flex flex-col gap-4">
           <div className="flex flex-col gap-4 border border-black rounded-lg p-4 bg-white shadow-lg">
             <span className="font-bold">Price</span>
-            <span className="uppercase font-bold text-xl md:text-2xl">
-              from
-            </span>
-            <span className="font-extrabold text-xl md:text-2xl">
+            <span className="uppercase font-bold text-xl md:text-xl">from</span>
+            <span className="font-extrabold text-xl md:text-4xl">
               {Package.price}
             </span>
+            <Link href="/contact">
+              <Button className="bg-yellow-400 font-bold w-full">
+                contact us
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

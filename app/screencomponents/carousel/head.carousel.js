@@ -65,7 +65,7 @@ export default function HeadCarousel() {
           <p className="text-sm sm:text-base md:text-xl line-clamp-6 font-light drop-shadow-lg max-w-6xl">
             {data[selectedIndex].description}
           </p>
-          <Link href={`/gotoDestination/${data[selectedIndex].slug}`}>
+          <Link href={`/destinations/${data[selectedIndex].slug}`}>
             <Button className="bg-yellow-400 px-6 sm:px-8 py-2 text-sm sm:text-base text-white font-bold cursor-pointer w-fit">
               See more
             </Button>

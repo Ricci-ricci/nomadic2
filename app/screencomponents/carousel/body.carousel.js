@@ -46,7 +46,7 @@ export default function CarouselScreen({ contents }) {
                 className="basis-full md:basis-1/3 p-2 flex items-start justify-center h-[40vh] md:h-[50vh]"
               >
                 <Link
-                  href={`/gotoDestination/${content.slug}`}
+                  href={`/destinations/${content.slug}`}
                   className="relative flex flex-col gap-4 w-full h-full"
                 >
                   <Image

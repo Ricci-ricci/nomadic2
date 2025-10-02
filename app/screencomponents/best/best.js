@@ -49,7 +49,7 @@ export default function BestDestination() {
           <p className="text-gray-600 text-lg line-clamp-10">
             {destinations.description}
           </p>
-          <Link href={`/gotoDestination/${destinations.slug}`}>
+          <Link href={`/destinations/${destinations.slug}`}>
             <button className="px-6 py-3 bg-yellow-400 text-white font-semibold rounded-lg hover:bg-yellow-500 transition">
               Explore
             </button>

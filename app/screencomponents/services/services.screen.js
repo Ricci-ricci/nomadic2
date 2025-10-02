@@ -1,25 +1,29 @@
 "use client";
+import Link from "next/link";
 import Container from "../bodycomponents/container";
 import { Button } from "@/components/ui/button";
 
 const servicesData = [
   {
     title: "Car Rental",
+    to: "/contact",
     description:
       "Rent a car with ease and comfort. Choose from a variety of vehicles for your adventure.",
-    image: "/slide1.jpg",
+    image: "/PEUGEOT406.jpg",
   },
   {
     title: "Guided Tours",
+    to: "/contact",
     description:
       "Explore the best destinations with our expert guides and curated itineraries.",
-    image: "/slide1.jpg",
+    image: "/images/western/tour2/background/second2.jpg",
   },
   {
     title: "Hotel Booking",
+    to: "/contact",
     description:
       "Find and book the best hotels at competitive prices for your stay.",
-    image: "/slide1.jpg",
+    image: "/images/TheBestIsland/galery/image12.webp",
   },
 ];
 
@@ -47,9 +51,11 @@ export default function ServicesScreen() {
                 {service.title}
               </h2>
               <p className="text-base md:text-lg">{service.description}</p>
-              <Button className="bg-yellow-400 text-black w-fit px-6 py-2 mt-4">
-                Learn More
-              </Button>
+              <Link href={service.to}>
+                <Button className="bg-yellow-400 text-black w-fit px-6 py-2 mt-4">
+                  Learn More
+                </Button>
+              </Link>
             </div>
           </div>
         ))}

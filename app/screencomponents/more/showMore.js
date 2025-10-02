@@ -29,7 +29,7 @@ export default function ShowMore({ content }) {
         {content.slice(0, 3).map((item, index) => (
           <Link
             key={index}
-            href={`/gotoDestination/${item.slug}`}
+            href={`/destinations/${item.slug}`}
             className="flex flex-col w-full md:w-1/3 relative group"
           >
             {/* Destination image */}
