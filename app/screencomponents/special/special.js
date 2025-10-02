@@ -15,7 +15,7 @@ export default function Special() {
       title: "Our Expertise",
       description:
         "With years of experience, we know how to balance comfort and adventure. We connect you with local communities and hidden destinations for unforgettable memories.",
-      image: "/destination/The West Baobab and Tsingy Tour/principal.jpg",
+      image: "/destination/TheWestBaobabandTsingyTour/principal.jpg",
     },
   ];
 
