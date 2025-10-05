@@ -33,6 +33,11 @@ export default function Header({ menuColor, logo, button }) {
       href: "/destination",
     },
     {
+      label: "FAQ",
+      type: "link",
+      href: "/faq",
+    },
+    {
       label: "Contact",
       type: "button",
       href: "/contact",
