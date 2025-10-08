@@ -8,7 +8,7 @@ export default function Footer() {
       line1: "102 M/car",
       city: "Antananarivo",
       area: "Fenoarivo",
-      faqandprivacy: "Faq and privacy",
+      faqandprivacy: "Privacy and policy",
     },
     contact: {
       phone: "+261 34 97 776 45",
@@ -40,7 +40,9 @@ export default function Footer() {
         <span>{footerData.address.line1}</span>
         <span>{footerData.address.city}</span>
         <span>{footerData.address.area}</span>
-        <Link href="/faq">{footerData.address.faqandprivacy}</Link>
+        <Link href="/faq" className="font-bold ">
+          {footerData.address.faqandprivacy}
+        </Link>
       </div>
 
       {/* Contact */}

@@ -2,19 +2,38 @@ import Image from "next/image";
 import Container from "../bodycomponents/container";
 
 export default function Special() {
-  const TEXT1 = "About Us";
-  const TEXT2 = "What's Special About Us";
+  const TEXT2 = "What's Special About Us?";
   const special = [
     {
       title: "Why We’re Special",
-      description:
-        "We design personalized itineraries tailored to your interests, and our local expertise ensures you experience authentic hidden gems beyond the usual tourist paths.",
+      description: {
+        textBefore1: "We design ",
+        italic1: "personalized itineraries",
+        textMiddle1: "tailored to your",
+        italic2: "interests",
+        textMiddle2: ", and our local",
+        italic3: "expertise",
+        textMiddle3: "ensures you ",
+        italic4: " experience authentic",
+        textAfter: "hidden gems beyond the usual tourist paths.",
+      },
       image: "/destination/Antananarivo/principal.jpg",
     },
     {
       title: "Our Expertise",
-      description:
-        "With years of experience, we know how to balance comfort and adventure. We connect you with local communities and hidden destinations for unforgettable memories.",
+      description: {
+        textBefore1: "With years of",
+        italic1: "experience",
+        textMiddle1: ", we know how to",
+        italic2: "balance",
+        textMiddle2: "comfort and adventure. We connect you with ",
+        italic3: "local communities",
+        textMiddle3: "and ",
+        italic4: "hidden destinations",
+        textMiddle4: "for unforgettable",
+        italic5: "memories",
+        textAfter: ".",
+      },
       image: "/destination/TheWestBaobabandTsingyTour/principal.jpg",
     },
   ];
@@ -23,11 +42,8 @@ export default function Special() {
     <Container>
       {/* Section Header */}
       <div className="flex w-full flex-col gap-2 p-4">
-        <span className="font-bold font-edu-vic text-lg md:text-4xl text-yellow-400">
-          {TEXT1}
-        </span>
         <div className="flex w-full items-center">
-          <span className="text-3xl md:text-4xl font-bold text-black max-w-3xl">
+          <span className="text-3xl md:text-5xl font-bold  text-yellow-400 max-w-3xl font-edu-vic">
             {TEXT2}
           </span>
         </div>
@@ -55,9 +71,19 @@ export default function Special() {
               <h2 className="text-black font-bold text-2xl md:text-4xl">
                 {item.title}
               </h2>
-              <span className="text-base md:text-lg text-gray-600">
-                {item.description}
-              </span>
+              <p className="text-base md:text-lg text-gray-600">
+                {item.description.textBefore1}{" "}
+                <span className="italic">{item.description.italic1}</span>{" "}
+                {item.description.textMiddle1}{" "}
+                <span className="italic">{item.description.italic2}</span>{" "}
+                {item.description.textMiddle2}{" "}
+                <span className="italic">{item.description.italic3}</span>{" "}
+                {item.description.textMiddle3}{" "}
+                <span className="italic">{item.description.italic4}</span>{" "}
+                {item.description.textMiddle4}{" "}
+                <span className="italic">{item.description.italic5}</span>
+                {item.description.textAfter}
+              </p>
             </div>
           </div>
         ))}

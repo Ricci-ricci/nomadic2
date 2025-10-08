@@ -62,7 +62,7 @@ export default function Package({ Package }) {
                       onClick={() => router.push(`/offer/${item.slug}`)}
                       className="px-6 bg-yellow-400"
                     >
-                      Book Now
+                      Book
                     </Button>
                   </div>
                 </div>

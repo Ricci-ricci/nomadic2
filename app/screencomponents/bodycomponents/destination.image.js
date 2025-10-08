@@ -38,9 +38,6 @@ export default function DestinationImage({ data }) {
           <div className="font-bold text-black text-3xl md:text-4xl">
             {data?.title}
           </div>
-          <div className="rounded-lg bg-yellow-400 px-4 py-1 font-bold text-white w-fit">
-            RN 7
-          </div>
         </div>
         <p className="text-gray-600 text-lg md:text-xl leading-relaxed">
           {data?.description}

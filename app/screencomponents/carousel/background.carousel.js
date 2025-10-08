@@ -15,13 +15,13 @@ export default function BackgroundCarousel({ images }) {
   ];
 
   const texts = [
-    "Unforgettable moment in the hearth of Baobab",
+    "Unforgettable in the heart of Baobab",
     "Relaxing moment",
-    "The smile of our people",
+    "The Malagasy smiling people",
     "Unique fauna and flora",
-    "Madagascar culture",
-    "The emblem of Madagascar in his real estate",
-    "Variety of spectacular landscaper",
+    "Rodéo Malagasy",
+    "The emblem of Madagascar in its real state",
+    "Variety of spectacular landscapes",
   ];
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });

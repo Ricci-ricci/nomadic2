@@ -175,13 +175,13 @@ export default function OnePackageScreen({ Package }) {
                         <span className="text-md font-semibold mb-2 text-gray-700">
                           Included:
                         </span>
-                        <span className="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                        <span className="list-disc pl-5 space-y-1 text-sm text-gray-600 whitespace-pre-line">
                           {Package.included}
                         </span>
-                        <span className="text-md font-semibold mb-2 text-gray-700">
+                        <span className="text-md font-semibold mb-2 text-gray-700 whitespace-pre-line">
                           Not Included:
                         </span>
-                        <span className="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                        <span className="list-disc pl-5 space-y-1 text-sm text-gray-600 whitespace-pre-line">
                           {Package.notIncluded}
                         </span>
                       </div>

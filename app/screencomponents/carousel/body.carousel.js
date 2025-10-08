@@ -57,7 +57,7 @@ export default function CarouselScreen({ contents }) {
                     height={800}
                   />
                   <div className="absolute inset-0 flex items-end justify-start p-6 md:p-8 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
-                    <h1 className="font-bold text-white text-lg md:text-xl drop-shadow-lg">
+                    <h1 className="font-bold text-white text-lg md:text-xl drop-shadow-lg uppercase">
                       {content.title}
                     </h1>
                   </div>

@@ -28,7 +28,7 @@ export default function More({ contents }) {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" // Responsive sizes for performance
               />
             </div>
-            <span className="font-bold text-lg">{item.title}</span>
+            <span className="font-bold text-lg uppercase">{item.title}</span>
           </Link>
         ))}
       </div>
