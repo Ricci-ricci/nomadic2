@@ -15,13 +15,13 @@ export default function BackgroundCarousel({ images }) {
   ];
 
   const texts = [
-    "Unforgettanle Moment in the hearth of Baobab",
-    "Relaxing Moment",
-    "The Smile of our people",
-    "Unique Faura and Flaura",
-    "Madagascar Culture",
-    "The Emblem of madagascar in his Real estate",
-    "Variety of spectacular Landscaper",
+    "Unforgettable moment in the hearth of Baobab",
+    "Relaxing moment",
+    "The smile of our people",
+    "Unique fauna and flora",
+    "Madagascar culture",
+    "The emblem of Madagascar in his real estate",
+    "Variety of spectacular landscaper",
   ];
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });

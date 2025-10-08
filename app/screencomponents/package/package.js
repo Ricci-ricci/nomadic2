@@ -53,9 +53,6 @@ export default function Package({ Package }) {
                   </div>
 
                   <h2 className="font-bold text-xl">{item.title}</h2>
-                  <p className="text-gray-600 text-sm line-clamp-2">
-                    {item.description}
-                  </p>
 
                   {/* Price & Button */}
                   <div className="mt-auto w-full flex justify-between items-center pt-2">

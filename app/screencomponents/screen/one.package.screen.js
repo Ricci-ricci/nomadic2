@@ -5,9 +5,19 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogDescription,
+  DialogTitle,
+  DialogHeader,
+} from "@/components/ui/dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+
 import Image from "next/image";
 import Link from "next/link";
+import Map from "../map/map";
 
 export default function OnePackageScreen({ Package }) {
   return (
@@ -105,6 +115,10 @@ export default function OnePackageScreen({ Package }) {
           <div className="flex flex-wrap gap-4 md:gap-12">
             {Package.gallery.map((img, index) => (
               <Dialog key={index}>
+                <VisuallyHidden>
+                  <DialogTitle>Booking Dialog</DialogTitle>
+                </VisuallyHidden>
+
                 <DialogTrigger>
                   <Image
                     src={img}
@@ -131,16 +145,55 @@ export default function OnePackageScreen({ Package }) {
         {/* Right Sidebar */}
         <div className="md:w-1/3 flex flex-col gap-4">
           <div className="flex flex-col gap-4 border border-black rounded-lg p-4 bg-white shadow-lg">
+            <Map></Map>
+          </div>
+          <div className="flex flex-col gap-4 border border-black rounded-lg p-4 bg-white shadow-lg">
             <span className="font-bold">Price</span>
             <span className="uppercase font-bold text-xl md:text-xl">from</span>
             <span className="font-extrabold text-xl md:text-4xl">
               {Package.price}
             </span>
-            <Link href="/contact">
-              <Button className="bg-yellow-400 font-bold w-full">
-                contact us
-              </Button>
-            </Link>
+            <span className="whitespace-pre-line">{Package.included}</span>
+            <span className="whitespace-pre-line">{Package.nonIncluded}</span>
+
+            <Dialog>
+              <DialogTrigger className="bg-yellow-400 cursor-pointer text-white font-bold py-2 px-4 rounded">
+                Book
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle className="font-bold">
+                    {Package.title} Dialog Title
+                  </DialogTitle>
+                  <DialogDescription as="div">
+                    <div className="space-y-4">
+                      <span className="text-center text-lg md:text-xl text-black font-bold">
+                        {Package.price} $
+                      </span>
+
+                      <div className="bg-gray-50 rounded-lg p-4 flex flex-col">
+                        <span className="text-md font-semibold mb-2 text-gray-700">
+                          Included:
+                        </span>
+                        <span className="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                          {Package.included}
+                        </span>
+                        <span className="text-md font-semibold mb-2 text-gray-700">
+                          Not Included:
+                        </span>
+                        <span className="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                          {Package.notIncluded}
+                        </span>
+                      </div>
+
+                      <Button className="w-full bg-yellow-400 cursor-pointer text-white font-semibold">
+                        Send Booking Request
+                      </Button>
+                    </div>
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>
