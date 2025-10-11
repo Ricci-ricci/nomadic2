@@ -18,6 +18,7 @@ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import Image from "next/image";
 import Link from "next/link";
 import Map from "../map/map";
+import BookDialog from "../dialog/bookDialog";
 
 export default function OnePackageScreen({ Package }) {
   return (
@@ -87,7 +88,7 @@ export default function OnePackageScreen({ Package }) {
       {/* Main Content */}
       <div className="flex flex-col md:flex-row gap-12 w-full">
         {/* Left Content */}
-        <div className="flex flex-col gap-8 md:w-2/3">
+        <div className="flex flex-col gap-8 md:gap-4 md:w-2/3">
           <span className="text-base md:text-lg">{Package.description}</span>
 
           {/* Itinerary */}
@@ -145,7 +146,7 @@ export default function OnePackageScreen({ Package }) {
         {/* Right Sidebar */}
         <div className="md:w-1/3 flex flex-col gap-4">
           <div className="flex flex-col gap-4 border border-black rounded-lg p-4 bg-white shadow-lg">
-            <Map></Map>
+            <Map className="z-0" />
           </div>
           <div className="flex flex-col gap-4 border border-black rounded-lg p-4 bg-white shadow-lg">
             <span className="font-bold">Price</span>
@@ -153,7 +154,9 @@ export default function OnePackageScreen({ Package }) {
             <span className="font-extrabold text-xl md:text-4xl">
               {Package.price}
             </span>
+            <span>Included: </span>
             <span className="whitespace-pre-line">{Package.included}</span>
+            <span>Not Included: </span>
             <span className="whitespace-pre-line">{Package.nonIncluded}</span>
 
             <Dialog>
@@ -166,34 +169,16 @@ export default function OnePackageScreen({ Package }) {
                     {Package.title} Dialog Title
                   </DialogTitle>
                   <DialogDescription as="div">
-                    <div className="space-y-4">
-                      <span className="text-center text-lg md:text-xl text-black font-bold">
-                        {Package.price} $
-                      </span>
-
-                      <div className="bg-gray-50 rounded-lg p-4 flex flex-col">
-                        <span className="text-md font-semibold mb-2 text-gray-700">
-                          Included:
-                        </span>
-                        <span className="list-disc pl-5 space-y-1 text-sm text-gray-600 whitespace-pre-line">
-                          {Package.included}
-                        </span>
-                        <span className="text-md font-semibold mb-2 text-gray-700 whitespace-pre-line">
-                          Not Included:
-                        </span>
-                        <span className="list-disc pl-5 space-y-1 text-sm text-gray-600 whitespace-pre-line">
-                          {Package.notIncluded}
-                        </span>
-                      </div>
-
-                      <Button className="w-full bg-yellow-400 cursor-pointer text-white font-semibold">
-                        Send Booking Request
-                      </Button>
-                    </div>
+                    <BookDialog Package={Package}></BookDialog>
                   </DialogDescription>
                 </DialogHeader>
               </DialogContent>
             </Dialog>
+            <Link href="/customize">
+              <Button className="bg-yellow-400 text-white font-bold py-2 px-4 rounded w-full">
+                Customized Trip
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

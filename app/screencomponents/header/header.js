@@ -8,6 +8,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Menu } from "lucide-react";
 import Image from "next/image";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 export default function Header({ menuColor, logo, button }) {
   const MENU = [
@@ -83,24 +91,24 @@ export default function Header({ menuColor, logo, button }) {
 
       {/* Mobile Menu */}
       <div className="md:hidden flex justify-end">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
+        <Sheet>
+          <SheetTrigger asChild>
             <button className="p-2 rounded-md border border-gray-300">
               <Menu className="w-6 h-6" />
             </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-48">
+          </SheetTrigger>
+          <SheetContent className="w-54 p-4">
             {MENU.filter(
               (item) => item.type === "link" || item.type === "button",
             ).map((item, i) => (
-              <DropdownMenuItem key={i} asChild>
-                <a href={item.href} className="w-full">
+              <SheetDescription key={i} asChild>
+                <a href={item.href} className="w-full text-xl font-bold">
                   {item.label}
                 </a>
-              </DropdownMenuItem>
+              </SheetDescription>
             ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
+          </SheetContent>
+        </Sheet>
       </div>
     </nav>
   );
