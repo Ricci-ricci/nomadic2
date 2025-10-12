@@ -89,7 +89,7 @@ export default function OnePackageScreen({ Package }) {
       <div className="flex flex-col md:flex-row gap-12 w-full">
         {/* Left Content */}
         <div className="flex flex-col gap-8 md:gap-4 md:w-2/3">
-          <span className="text-base md:text-lg">{Package.description}</span>
+          <span className="text-base md:text-lg whitespace-pre-line">{Package.description}</span>
 
           {/* Itinerary */}
           <span className="text-2xl md:text-4xl font-bold">Itinerary</span>
@@ -104,7 +104,7 @@ export default function OnePackageScreen({ Package }) {
                 <AccordionTrigger className="text-lg md:text-2xl text-yellow-400 font-bold">
                   {item.day}
                 </AccordionTrigger>
-                <AccordionContent className="text-base md:text-lg">
+                <AccordionContent className="text-base md:text-lg whitespace-pre-line">
                   {item.description}
                 </AccordionContent>
               </AccordionItem>

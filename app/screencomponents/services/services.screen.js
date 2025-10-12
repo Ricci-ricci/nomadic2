@@ -11,85 +11,98 @@ const CarRentalData = [
   {
     title: "citroen 2CV-The iconic Vintage Ride",
     description:
-      " \n\n Manual Transmission\n\n Unique and classic design\n\nPerfect for a nostalgic driving experience \n\n ",
-    image: "/PEUGEOT406.jpg",
-    price: "$65/day (rate my vary depending on destination)",
+      " \n\n Manual Transmission\n Unique and classic design\nPerfect for a nostalgic driving experience \n (rate my vary depending on destination)",
+    image: "/citroen.jpg",
+    price: "$65/day ",
   },
   {
-    title: "Hyundai Terracan-Manual 4WD",
+    title: "Hyundai Terracan-Manual 4WD\n",
     description:
-      "Spacious 5-seater SUV \n\n Air-conditioned confort \n\n Strong and reliable perfect for adventure off the heaten track ",
-    image: "/PEUGEOT406.jpg",
-    price: "$70/day (price may vary depending on the itinerary)",
+      "Spacious 5-seater SUV \n Air-conditioned confort \n Strong and reliable perfect for adventure off the heaten track\n (price may vary depending on the itinerary) \n",
+    image: "/hiuyndai.jpg",
+    price: "$70/day",
   },
   {
     title: "Kia Sorento 4WD-Manual",
     description:
-      "Spacious 5-seater (official registration) \n\n air-conditioned confort for every journey \n\nStrong,reliable,and ready for adventure ",
-    image: "/PEUGEOT406.jpg",
-    price: "$70/day (price may vary depending on the itinerary)",
+      "Spacious 5-seater (official registration) \n air-conditioned confort for every journey \nStrong,reliable,and ready for adventure \n (price may vary depending on the itinerary)",
+    image: "/kia.jpg",
+    price: "$70/day",
   },
   {
     title: "Nissan Patrol Y61(4WD)",
     description:
-      " \n\n Manual Transmission\n\n Robuste and reliable SUV\n\nSpacious,powerful and comfortable \n\nPerfect for city,peripheral,and off-read adventures ",
-    image: "/PEUGEOT406.jpg",
+      " \n\n Manual Transmission\n Robuste and reliable SUV\n\nSpacious,powerful and comfortable \n\nPerfect for city,peripheral,and off-read adventures (price may vary depending on the itinerary)",
+    image: "/nissan.jpg",
     price: "$80/day",
   },
   {
-    title: "Peugeot 408 BREAM-Manual",
+    title: "Peugeot 408 BREAM-Manual \n",
     description:
-      " \n\n Spacious 5-seater station wagon\n\n air-conditioned comfort for families and long journeys\n\n reliable and pratical for all itineraries \n\n ",
-    image: "/PEUGEOT406.jpg",
-    price: "$44/day(price may vary depending on the itinerary)",
+      " \n\n Spacious 5-seater station wagon\n air-conditioned comfort for families and long journeys \n reliable and pratical for all itineraries \n (price may vary depending on the itinerary)",
+    image: "/peugeot.jpg",
+    price: "$44/day",
   },
   {
     title: "Toyota Prado Gx(2008)",
     description:
-      " \n\n Transmission manual \n\n Drive:4WD\n\n Air conditioning-full confort  \n\n Spacious ,powerful and reliable SUV-ideal for all road conditions ",
-    image: "/PEUGEOT406.jpg",
-    price: "$80/day(price may vary depending on destination)",
+      " \n\n Transmission manual \n Drive:4WD\n Air conditioning-full confort  \n\n Spacious ,powerful and reliable SUV-ideal for all road conditions \n (price may vary depending on destination)",
+    image: "/pradox.jpg",
+    price: "$80/day",
   },
   {
     title: "Toyota Gx 105(4WD)",
     description:
-      " \n\n Robust and powerful\n\n air-conditioned comfort\n\n Spacious and reliable ",
-    image: "/PEUGEOT406.jpg",
-    price: "$85/day(price may vary depending on destinaion)",
+      " \n\n Robust and powerful\n\n air-conditioned comfort\n\n Spacious and reliable \n(price may vary depending on destinaion)",
+    image: "/toyota.jpg",
+    price: "$85/day",
   },
   {
     title: "Volkswagen Beetle-the timeless classic ",
     description:
       " \n\n  Manual transmission\n\n Vintage for city drives and peripheral city tours\n\n reliable and pratical for all itineraries \n\n ",
-    image: "/PEUGEOT406.jpg",
+    image: "/volskwagen.jpg",
     price: "$65/day(price may vary depending on destination)",
   },
 ];
-
-const servicesData = [
+const GuideRentalData = [
   {
-    title: "Car Rental",
-    to: "/contact",
-    description:
-      "Rent a car with ease and comfort. Choose from a variety of vehicles for your adventure.",
-    image: "/PEUGEOT406.jpg",
+    title: "Local Guide",
+    nom: "Floriel ",
+    description: "Explore Madagascar with a knowledgeable local guide.",
+    image: "/floriel.jpg",
   },
   {
-    title: "Guided Tours",
-    to: "/contact",
-    description:
-      "Explore the best destinations with our expert guides and curated itineraries.",
-    image: "/images/western/tour2/background/second2.jpg",
+    title: "Local Guide",
+    nom: "Patrice",
+    description: "Explore Madagascar with a knowledgeable local guide.",
+    image: "/patrice.jpg",
   },
   {
-    title: "Hotel Booking",
-    to: "/contact",
-    description:
-      "Find and book the best hotels at competitive prices for your stay.",
-    image: "/images/TheBestIsland/galery/image12.webp",
+    title: "Local Guide",
+    nom: "Nambinina",
+    description: "Explore Madagascar with a knowledgeable local guide.",
+    image: "/nambinina.jpg",
+  },
+  {
+    title: "Local Guide",
+    nom: "Justin",
+    description: "Explore Madagascar with a knowledgeable local guide.",
+    image: "/justin.jpg",
+  },
+  {
+    title: "Local Guide",
+    nom: "Marc",
+    description: "Explore Madagascar with a knowledgeable local guide.",
+    image: "/marc.jpg",
+  },
+  {
+    title: "Local Guide",
+    nom: "Riri",
+    description: "Explore Madagascar with a knowledgeable local guide.",
+    image: "/riri.jpg",
   },
 ];
-
 export default function ServicesScreen() {
   const [step, setStep] = useState(false);
 
