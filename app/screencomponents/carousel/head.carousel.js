@@ -65,15 +65,22 @@ export default function HeadCarousel() {
           <p className="text-sm sm:text-base md:text-xl line-clamp-6 font-light drop-shadow-lg max-w-6xl">
             {data[selectedIndex].description}
           </p>
-          <Link href={`/destinations/${data[selectedIndex].slug}`}>
-            <Button className="bg-yellow-400 px-6 sm:px-8 py-2 text-sm sm:text-base text-white font-bold cursor-pointer w-fit">
-              See more
-            </Button>
-          </Link>
+          <div className="flex flex-col gap-4">
+            <Link href={`/destinations/${data[selectedIndex].slug}`}>
+              <Button className="bg-yellow-400 px-6 sm:px-8 py-2 text-sm sm:text-base text-white font-bold cursor-pointer w-fit">
+                See more
+              </Button>
+            </Link>
+            <Link href={`/customize`}>
+              <Button className="bg-yellow-400 px-6 sm:px-8 py-2 text-sm sm:text-base text-white font-bold cursor-pointer w-fit">
+                Customized Trip
+              </Button>
+            </Link>
+          </div>
         </div>
 
         {/* Navigation buttons */}
-        <div className="absolute bottom-4 md:bottom-8 right-1/2 md:right-12 translate-x-1/2 md:translate-x-0 flex gap-3 md:gap-4">
+        <div className="absolute bottom-4 md:bottom-8 right-12 md:right-12 translate-x-1/2 md:translate-x-0 flex gap-3 md:gap-4">
           <Button
             className="flex items-center justify-center rounded-full w-8 h-8 md:w-10 md:h-10"
             onClick={() => emblaApi && emblaApi.scrollPrev()}

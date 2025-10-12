@@ -9,16 +9,41 @@ export default function ContactScreen() {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you for your message! We will contact you soon.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Thank you for your message! We will contact you soon.");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error(result.error || "Failed to send message");
+      }
+    } catch (err) {
+      console.error("Submission error:", err);
+      setError("Failed to send your message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -31,7 +56,6 @@ export default function ContactScreen() {
           Have questions or want to book a tour? Fill out the form below and
           we’ll get back to you as soon as possible.
         </p>
-
         <form
           onSubmit={handleSubmit}
           className="flex flex-col gap-6 bg-white p-8 rounded-xl shadow-lg"
@@ -50,7 +74,6 @@ export default function ContactScreen() {
               className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-400"
             />
           </div>
-
           <div className="flex flex-col gap-2">
             <label className="font-bold text-yellow-400" htmlFor="email">
               Email
@@ -65,7 +88,6 @@ export default function ContactScreen() {
               className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-400"
             />
           </div>
-
           <div className="flex flex-col gap-2">
             <label className="font-bold text-yellow-400" htmlFor="subject">
               Subject
@@ -79,7 +101,6 @@ export default function ContactScreen() {
               className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-400"
             />
           </div>
-
           <div className="flex flex-col gap-2">
             <label className="font-bold text-yellow-400" htmlFor="message">
               Message
@@ -94,12 +115,15 @@ export default function ContactScreen() {
               className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-400"
             />
           </div>
-
+          {error && <p className="text-red-500">{error}</p>}
           <button
             type="submit"
-            className="bg-yellow-400 text-white font-bold px-6 py-3 rounded-lg hover:bg-yellow-500 transition"
+            disabled={isSubmitting}
+            className={`bg-yellow-400 text-white font-bold px-6 py-3 rounded-lg hover:bg-yellow-500 transition ${
+              isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+            }`}
           >
-            Send Message
+            {isSubmitting ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>

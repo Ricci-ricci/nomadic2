@@ -1,67 +1,84 @@
 "use client";
 import { Destination } from "@/lib/data/destination";
 import Image from "next/image";
-import { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 
-export default function DestinationChoice() {
+export default function DestinationChoice({ selected = [], onChange }) {
   const destinations = Destination();
-  const [selectedDestinations, setSelectedDestinations] = useState([]);
 
-  const toggleSelect = (id) => {
-    setSelectedDestinations((prevSelected) =>
-      prevSelected.includes(id)
-        ? prevSelected.filter((item) => item !== id)
-        : [...prevSelected, id],
-    );
+  const toggleSelect = (title) => {
+    const newSelection = selected.includes(title)
+      ? selected.filter((item) => item !== title)
+      : [...selected, title];
+    onChange?.(newSelection);
   };
 
   return (
-    <div className="p-6 flex items-start flex-col gap-8">
-      <h2 className="text-xl md:text-3xl font-bold mb-4 text-center">
-        Where Do you Want to Go?
-      </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-        {destinations.map((item) => {
-          const isSelected = selectedDestinations.includes(item.id);
-          return (
-            <div
-              key={item.id}
-              className={`relative cursor-pointer rounded-xl overflow-hidden shadow-md transition-transform duration-300 ${
-                isSelected ? "ring-4 ring-yellow-400 scale-105" : ""
-              }`}
-              onClick={() => toggleSelect(item.id)}
-            >
-              <Image
-                src={item.image}
-                alt={item.title}
-                width={300}
-                height={200}
-                className="w-full h-40 object-cover"
-              />
-              {isSelected && (
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                  <CheckCircle2 size={48} className="text-white" />
-                </div>
-              )}
-              <div className="p-2 text-center font-medium">{item.title}</div>
-            </div>
-          );
-        })}
-      </div>
+    <div className="px-6 py-10 flex flex-col items-center justify-center gap-8 w-full">
+      {/* Title */}
+      <span className="text-2xl sm:text-4xl md:text-5xl font-semibold text-center max-w-3xl leading-snug">
+        Pick all the destinations you dream of visiting! <br />
+        <span className="text-yellow-400">Here in Madagascar </span>
+      </span>
 
-      {selectedDestinations.length > 0 && (
-        <div className="mt-6 text-center">
-          <button
-            className="px-6 py-2 bg-yellow-400 text-white rounded-lg cursor-pointer transition"
-            onClick={() =>
-              alert(`Selected destinations: ${selectedDestinations.join(", ")}`)
-            }
-          >
-            Continue
-          </button>
-        </div>
-      )}
+      {/* Carousel container */}
+      <div className="w-full max-w-7xl p-4">
+        <Carousel className="w-full">
+          <CarouselContent className="flex items-center justify-center p-4 gap-4">
+            {destinations.map((item) => {
+              const isSelected = selected.includes(item.title);
+              return (
+                <CarouselItem
+                  key={item.id}
+                  className="basis-full sm:basis-1/2 lg:basis-1/3 flex justify-center"
+                >
+                  <div
+                    onClick={() => toggleSelect(item.title)}
+                    className={`relative cursor-pointer rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 w-[90%] sm:w-[280px] md:w-[320px] lg:w-[360px] h-[400px] ${
+                      isSelected
+                        ? "ring-4 ring-yellow-400 scale-105"
+                        : "hover:scale-105"
+                    }`}
+                  >
+                    {/* Image */}
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                    />
+
+                    {/* Overlay when selected */}
+                    {isSelected && (
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <CheckCircle2
+                          size={56}
+                          className="text-white drop-shadow-lg"
+                        />
+                      </div>
+                    )}
+
+                    {/* Title */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/40 py-3 text-center text-white font-semibold text-lg">
+                      {item.title}
+                    </div>
+                  </div>
+                </CarouselItem>
+              );
+            })}
+          </CarouselContent>
+
+          <CarouselPrevious className="" />
+          <CarouselNext className="" />
+        </Carousel>
+      </div>
     </div>
   );
 }
