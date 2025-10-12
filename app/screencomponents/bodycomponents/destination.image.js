@@ -39,7 +39,7 @@ export default function DestinationImage({ data }) {
             {data?.title}
           </div>
         </div>
-        <p className="text-gray-600 text-lg md:text-xl leading-relaxed">
+        <p className="text-gray-600 text-lg md:text-xl leading-relaxed whitespace-pre-line ">
           {data?.description}
         </p>
       </div>

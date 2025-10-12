@@ -16,6 +16,10 @@ export default function Footer() {
       whatsapp: "+261 34 97 776 45",
       facebook: "NomadicZebu",
     },
+    autorisation:{
+      autorisation1:"N°: 68-MTA/SG/DGT/SAT-EDBM.25",
+      autorisation2:"N°: 69-MTA/SG/DGT/SAT-EDBM.25",
+    }
   };
 
   return (

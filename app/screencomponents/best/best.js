@@ -3,7 +3,7 @@ import Container from "../bodycomponents/container";
 import Link from "next/link";
 
 export default function BestDestination() {
-  const TXT2 = "One of our best Destination so far :";
+  const TXT2 = "One our flagship destination :";
   const destinations = {
     id: 5,
     title: "nosy be",
@@ -14,7 +14,7 @@ export default function BestDestination() {
     description2: "\nDiscover Nosy Be!\n",
     description:
       "Nosy Be, located off Madagascar’s northwestern coast, is the country’s top tourist destination.\nIn the southeast of the island, a hike through Lokobe National Park will take you deep into lush forest, where you’ll encounter a fascinating variety of reptiles and lemurs. The island’s capital, Hell-Ville, is known for its charming French colonial architecture and its bustling local market perfect for picking up souvenirs.\nLemuria Land is another highlight, home to many species of lemurs and other native wildlife.\nNosy Be is also surrounded by beautiful smaller islands like Nosy Iranja, Nosy Sakatia, and Nosy Komba, each offering unique marine fauna and flora, ideal for snorkeling and diving.\nUnwind with unforgettable moments at the Blue Lagoon, where white sandy beaches and crystal-clear waters await. For a truly breathtaking view, don’t miss the hike up Mont Passot, which offers a panoramic lookout over crater lakes and lush landscapes.\nSo don’t hesitate, join our team and come explore the unforgettable beauty of Madagascar! Discover Nosy Be!",
-    image: `/destination/ThebestIsland/principal.jpeg`,
+    image: `/destination/ThebestIsland/principal.jpg`,
     thumbnail: [
       `/destination/ThebestIsland/second1.jpg`,
       `/destination/ThebestIsland/second2.jpg`,
