@@ -3,11 +3,9 @@ import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet/dist/images/marker-icon.png";
 import "leaflet/dist/images/marker-shadow.png";
-import iconUrl from "leaflet/dist/images/marker-icon.png";
-import shadowUrl from "leaflet/dist/images/marker-shadow.png";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
-import { useEffect } from "react";
 import L from "leaflet";
+import { useEffect } from "react";
 import "leaflet-routing-machine";
 const startIcon = L.icon({
   iconUrl:
@@ -40,20 +38,18 @@ const createMarker = (i, waypoint) => {
   waypointIndex++;
   return marker;
 };
-
-function RouteMap() {
+export function RouteMap({ start, end }) {
   const map = useMap();
 
   useEffect(() => {
     if (!map) return;
 
-    // Points fixes : Paris (départ) et Versailles (arrivée)
-    const startPoint = L.latLng(48.8566, 2.3522); // Paris
-    const endPoint = L.latLng(48.8049, 2.1204); // Versailles
+    const startPoints = L.latLng(start);
+    const endPoints = L.latLng(end);
 
     // Ajouter le contrôle de routage
     const routingControl = L.Routing.control({
-      waypoints: [startPoint, endPoint],
+      waypoints: [startPoints, endPoints],
       router: L.Routing.osrmv1({
         serviceUrl: "https://router.project-osrm.org/route/v1",
       }),
@@ -77,16 +73,16 @@ function RouteMap() {
 
   return null;
 }
-export default function Map() {
-  const position = [51.505, -0.09];
+
+export default function Map({ start, end }) {
   return (
     <div className="z-0">
-      <MapContainer center={position} zoom={10} scrollWheelZoom={true}>
+      <MapContainer center={start} zoom={10} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <RouteMap></RouteMap>
+        <RouteMap start={start} end={end}></RouteMap>
       </MapContainer>
     </div>
   );

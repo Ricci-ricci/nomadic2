@@ -7,7 +7,13 @@ export async function POST(req) {
     const { name, email, subject, message } = await req.json();
     await resend.emails.send({
       from: "Trip Planner <onboarding@resend.dev>", // Replace with your validated Resend domain
-      to: "riccireese13@gmail.com", // Your email address for receiving requests
+      to: [
+        "riccireese13@gmail.com",
+        "nomadiczebu@gmail.com",
+        "stephanie.nomadic@gmail.com",
+        "franck.nomadiczebu@gmail.com",
+        "granitixmg@gmail.com",
+      ], // 👈 your destination email // Your email address for receiving requests
       subject: `New Booking Request: ${subject}`,
       html: `<p>An user has submitted a booking request.</p>
              <p><strong>Name:</strong> ${name}</p>

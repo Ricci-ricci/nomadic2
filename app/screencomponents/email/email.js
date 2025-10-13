@@ -30,7 +30,7 @@ export default function Email({ handleSend }) {
 
       {sent ? (
         <p className="text-green-600 font-semibold">
-          🎉 Merci ! Votre e-mail a bien été envoyé.
+          Merci ! Votre e-mail a bien été envoyé.
         </p>
       ) : (
         <form onSubmit={handleSubmit} className="flex gap-2 flex-col">

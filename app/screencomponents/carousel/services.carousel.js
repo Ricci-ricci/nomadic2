@@ -13,17 +13,15 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Eye } from "lucide-react";
+import { Check } from "lucide-react"; // ✅ Replaced Eye with Check
 import { useState, useEffect } from "react";
-import RentalDialog from "../dialog/rentalDialog";
 import Email from "../email/email";
 
-export default function ServicesCarousel({ contents, handle, step }) {
+export default function ServicesCarousel({ contents }) {
   const [api, setApi] = useState(null);
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -37,7 +35,6 @@ export default function ServicesCarousel({ contents, handle, step }) {
     });
   }, [api]);
 
-  // Fonction pour envoyer l'email avec Resend
   const handleSendEmail = async (email, title) => {
     try {
       const res = await fetch("/api/car", {
@@ -64,15 +61,15 @@ export default function ServicesCarousel({ contents, handle, step }) {
           Car Rental
         </h2>
 
-        <div className="w-full max-w-7xl p-4">
-          <Carousel opts={{ loop: true }} setApi={setApi} className="w-full">
-            <CarouselContent className="flex items-center justify-center p-4 gap-4">
+        <div className="w-full max-w-7xl md:p-4">
+          <Carousel setApi={setApi} className="w-full">
+            <CarouselContent className="flex items-center justify-start gap-6 px-4">
               {contents?.map((content, index) => (
                 <CarouselItem
                   key={index}
-                  className="basis-full sm:basis-1/2 lg:basis-1/3 flex justify-center"
+                  className="flex-shrink-0 basis-full sm:basis-1/2 md:basis-1/2 lg:basis-1/2 flex justify-center"
                 >
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 w-[90%] sm:w-[280px] md:w-[320px] lg:w-[360px] h-[400px] hover:scale-105 group">
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 w-full h-[400px] hover:scale-105 group">
                     <Image
                       src={content.image}
                       alt={content.title}
@@ -83,14 +80,15 @@ export default function ServicesCarousel({ contents, handle, step }) {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
 
                     <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between p-4 bg-black/40">
-                      <h1 className="text-white font-semibold text-lg md:text-xl uppercase tracking-wide drop-shadow-lg">
+                      <h1 className="text-white font-semibold text-sm md:text-xl uppercase tracking-wide drop-shadow-lg">
                         {content.title}
                       </h1>
 
                       <Dialog>
                         <DialogTrigger asChild>
                           <button className="flex items-center justify-center w-10 h-10 rounded-full bg-yellow-400 hover:bg-yellow-500 transition-all duration-300 shadow-lg hover:shadow-yellow-400/50">
-                            <Eye className="text-white" size={20} />
+                            <Check className="text-white" size={20} />{" "}
+                            {/* ✅ Changed here */}
                           </button>
                         </DialogTrigger>
 
@@ -99,14 +97,12 @@ export default function ServicesCarousel({ contents, handle, step }) {
                             <DialogTitle className="text-2xl font-bold text-yellow-500">
                               {content.title}
                             </DialogTitle>
-                            <DialogDescription>
-                              {/* 🔹 Ici, on affiche le formulaire d’email */}
-                              <Email
-                                handleSend={async (email) =>
-                                  handleSendEmail(email, content.title)
-                                }
-                              />
-                            </DialogDescription>
+
+                            <Email
+                              handleSend={async (email) =>
+                                handleSendEmail(email, content.title)
+                              }
+                            />
                           </DialogHeader>
                         </DialogContent>
                       </Dialog>

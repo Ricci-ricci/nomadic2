@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Menu } from "lucide-react";
+import { Menu, Facebook, Instagram, MessageCircle } from "lucide-react";
 import Image from "next/image";
 import {
   Sheet,
@@ -19,36 +13,29 @@ import {
 
 export default function Header({ menuColor, logo, button }) {
   const MENU = [
+    { label: "Logo", type: "logo", image: "/logo.png", href: "/" },
+    { label: "Home", type: "link", href: "/" },
+    { label: "Services", type: "link", href: "/services" },
+    { label: "Destination", type: "link", href: "/destination" },
+    { label: "FAQ", type: "link", href: "/faq" },
+    { label: "Contact", type: "button", href: "/contact" },
+  ];
+
+  const SOCIALS = [
     {
-      label: "Logo",
-      type: "logo",
-      image: "/logo.png",
-      href: "/", // home
+      icon: <Facebook size={20} />,
+      href: "https://facebook.com",
+      color: "text-blue-600",
     },
     {
-      label: "Home",
-      type: "link",
-      href: "/",
+      icon: <Instagram size={20} />,
+      href: "https://instagram.com",
+      color: "text-pink-500",
     },
     {
-      label: "Services",
-      type: "link",
-      href: "/services",
-    },
-    {
-      label: "Destination",
-      type: "link",
-      href: "/destination",
-    },
-    {
-      label: "FAQ",
-      type: "link",
-      href: "/faq",
-    },
-    {
-      label: "Contact",
-      type: "button",
-      href: "/contact",
+      icon: <MessageCircle size={20} />,
+      href: "https://wa.me/1234567890", // WhatsApp link
+      color: "text-green-500",
     },
   ];
 
@@ -76,8 +63,23 @@ export default function Header({ menuColor, logo, button }) {
         ))}
       </div>
 
-      {/* Desktop Button */}
-      <div className="hidden md:flex flex-1 justify-end">
+      {/* Desktop Button + Socials */}
+      {/* Desktop Button + Socials */}
+      <div className="hidden md:flex flex-1 justify-end items-center gap-4">
+        {/* Social Icons first (left of button) */}
+        {SOCIALS.map((social, i) => (
+          <a
+            key={i}
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`p-2 rounded-full hover:bg-gray-200 transition ${social.color}`}
+          >
+            {social.icon}
+          </a>
+        ))}
+
+        {/* Contact Button */}
         {MENU.filter((item) => item.type === "button").map((item, i) => (
           <a
             key={i}
@@ -97,7 +99,7 @@ export default function Header({ menuColor, logo, button }) {
               <Menu className="w-6 h-6" />
             </button>
           </SheetTrigger>
-          <SheetContent className="w-54 p-4">
+          <SheetContent className="w-54 p-4 flex flex-col gap-4">
             {MENU.filter(
               (item) => item.type === "link" || item.type === "button",
             ).map((item, i) => (
@@ -107,6 +109,21 @@ export default function Header({ menuColor, logo, button }) {
                 </a>
               </SheetDescription>
             ))}
+
+            {/* Social Icons Mobile */}
+            <div className="flex gap-4 mt-4">
+              {SOCIALS.map((social, i) => (
+                <a
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`p-2 rounded-full hover:bg-gray-200 transition ${social.color}`}
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
           </SheetContent>
         </Sheet>
       </div>

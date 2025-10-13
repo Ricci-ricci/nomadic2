@@ -2,14 +2,13 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import Email from "../email/email"; // ← ton composant d’email
+import Email from "../email/email";
 
 export default function BookDialog({ Package }) {
-  const [step, setStep] = useState(false); // false = info, true = email
+  const [step, setStep] = useState(false);
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // 📨 Fonction d’envoi appelée par <Email handleSend={sendBooking} />
   const sendBooking = async (userEmail) => {
     setLoading(true);
     try {
@@ -24,11 +23,8 @@ export default function BookDialog({ Package }) {
       });
 
       const data = await res.json();
-      if (data.success) {
-        setSent(true);
-      } else {
-        alert("Erreur lors de l’envoi de la réservation");
-      }
+      if (data.success) setSent(true);
+      else alert("Erreur lors de l’envoi de la réservation");
     } catch (error) {
       console.error(error);
       alert("Impossible d’envoyer la réservation");
@@ -37,12 +33,12 @@ export default function BookDialog({ Package }) {
     }
   };
 
+  // Step 2 : Email form
   if (step) {
-    // Étape 2 : affichage du composant Email
     return (
-      <div className="p-4">
+      <div className="p-4 md:p-6 w-full max-w-md mx-auto h-full overflow-y-auto">
         {sent ? (
-          <p className="text-green-600 text-center font-semibold">
+          <p className="text-green-600 text-center font-semibold text-base md:text-lg">
             🎉 Votre demande de réservation a été envoyée avec succès !
           </p>
         ) : (
@@ -52,34 +48,44 @@ export default function BookDialog({ Package }) {
     );
   }
 
-  // Étape 1 : affichage des infos du package
+  // Step 1 : Package info
   return (
-    <div className="space-y-4">
-      <span className="text-center text-lg md:text-xl text-black font-bold">
-        {Package.price} $
-      </span>
-
-      <div className="bg-gray-50 rounded-lg p-4 flex flex-col">
-        <span className="text-md font-semibold mb-2 text-gray-700">
-          Included:
+    <div className="space-y-6 p-4 md:p-6 w-full max-w-md mx-auto h-full overflow-y-auto">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <span className="text-2xl md:text-3xl font-bold text-gray-900 text-center sm:text-left">
+          {Package.title}
         </span>
-        <span className="text-sm text-gray-600 whitespace-pre-line">
-          {Package.included}
-        </span>
-
-        <span className="text-md font-semibold mt-3 mb-2 text-gray-700">
-          Not Included:
-        </span>
-        <span className="text-sm text-gray-600 whitespace-pre-line">
-          {Package.notIncluded}
+        <span className="text-xl md:text-2xl text-yellow-500 font-extrabold text-center sm:text-right">
+          {Package.price} $
         </span>
       </div>
 
+      <div className="bg-gray-50 rounded-lg p-4 md:p-5 hidden md:flex flex-col gap-3 border border-gray-200 shadow-sm">
+        <div>
+          <span className="text-md md:text-lg font-semibold mb-1 text-gray-700 block">
+            Included:
+          </span>
+          <span className="text-sm md:text-base text-gray-600 whitespace-pre-line leading-relaxed">
+            {Package.included}
+          </span>
+        </div>
+
+        <div>
+          <span className="text-md md:text-lg font-semibold mb-1 text-gray-700 block">
+            Not Included:
+          </span>
+          <span className="text-sm md:text-base text-gray-600 whitespace-pre-line leading-relaxed">
+            {Package.notIncluded}
+          </span>
+        </div>
+      </div>
+
       <Button
-        onClick={() => setStep(true)} // 👉 passe à l’écran email
-        className="w-full bg-yellow-400 hover:bg-yellow-500 text-white font-semibold"
+        onClick={() => setStep(true)}
+        disabled={loading}
+        className="w-full bg-yellow-400 hover:bg-yellow-500 text-white font-semibold text-base md:text-lg py-2 md:py-3 rounded-xl transition-all duration-300"
       >
-        Send Booking Request
+        {loading ? "Sending..." : "Send Booking Request"}
       </Button>
     </div>
   );

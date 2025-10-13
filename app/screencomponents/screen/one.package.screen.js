@@ -1,3 +1,4 @@
+"use client";
 import {
   Accordion,
   AccordionContent,
@@ -18,6 +19,7 @@ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import Image from "next/image";
 import Link from "next/link";
 import Map from "../map/map";
+import MapComponent from "../map/mapcomponent";
 import BookDialog from "../dialog/bookDialog";
 
 export default function OnePackageScreen({ Package }) {
@@ -89,7 +91,9 @@ export default function OnePackageScreen({ Package }) {
       <div className="flex flex-col md:flex-row gap-12 w-full">
         {/* Left Content */}
         <div className="flex flex-col gap-8 md:gap-4 md:w-2/3">
-          <span className="text-base md:text-lg whitespace-pre-line">{Package.description}</span>
+          <span className="text-base md:text-lg whitespace-pre-line">
+            {Package.description}
+          </span>
 
           {/* Itinerary */}
           <span className="text-2xl md:text-4xl font-bold">Itinerary</span>
@@ -114,24 +118,27 @@ export default function OnePackageScreen({ Package }) {
           {/* Gallery */}
           <span className="text-2xl md:text-4xl font-bold">Gallery</span>
           <div className="flex flex-wrap gap-4 md:gap-12">
-            {Package.gallery.map((img, index) => (
+            {Package.gallery.map((item, index) => (
               <Dialog key={index}>
                 <VisuallyHidden>
-                  <DialogTitle>Booking Dialog</DialogTitle>
+                  <DialogTitle>{item.title}</DialogTitle>
                 </VisuallyHidden>
 
                 <DialogTrigger>
                   <Image
-                    src={img}
+                    src={item.image}
                     alt=""
                     width={300}
                     height={200}
                     className="rounded-lg w-[250] h-[200] cursor-pointer"
                   />
+                  <p className="mt-2 text-center text-gray-700 font-medium">
+                    {item.title}
+                  </p>
                 </DialogTrigger>
                 <DialogContent>
                   <Image
-                    src={img}
+                    src={item.image}
                     alt="gallery"
                     width={1400}
                     height={800}
@@ -146,7 +153,11 @@ export default function OnePackageScreen({ Package }) {
         {/* Right Sidebar */}
         <div className="md:w-1/3 flex flex-col gap-4">
           <div className="flex flex-col gap-4 border border-black rounded-lg p-4 bg-white shadow-lg">
-            <Map className="z-0" />
+            <MapComponent
+              className="z-0"
+              start={Package.start}
+              end={Package.end}
+            />
           </div>
           <div className="flex flex-col gap-4 border border-black rounded-lg p-4 bg-white shadow-lg">
             <span className="font-bold">Price</span>
@@ -163,14 +174,11 @@ export default function OnePackageScreen({ Package }) {
               <DialogTrigger className="bg-yellow-400 cursor-pointer text-white font-bold py-2 px-4 rounded">
                 Book
               </DialogTrigger>
-              <DialogContent>
+              <DialogContent className="h-[400px] overflow-hidden">
                 <DialogHeader>
-                  <DialogTitle className="font-bold">
-                    {Package.title} Dialog Title
-                  </DialogTitle>
-                  <DialogDescription as="div">
-                    <BookDialog Package={Package}></BookDialog>
-                  </DialogDescription>
+                  <DialogTitle className="font-bold">OFFRE</DialogTitle>
+
+                  <BookDialog Package={Package}></BookDialog>
                 </DialogHeader>
               </DialogContent>
             </Dialog>

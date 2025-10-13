@@ -64,7 +64,13 @@ export default function Customise() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          to: "riccireese13@gmail.com", // 👈 your destination email
+          to: [
+            "riccireese13@gmail.com",
+            "nomadiczebu@gmail.com",
+            "stephanie.nomadic@gmail.com",
+            "franck.nomadiczebu@gmail.com",
+            "granitixmg@gmail.com",
+          ], // 👈 your destination email
           subject: "🌍 New Trip Customization Request",
           message,
         }),
@@ -72,7 +78,6 @@ export default function Customise() {
 
       const data = await res.json();
       if (data.success) {
-        alert("✅ Your trip preferences have been sent successfully!");
         resetChoices();
       } else {
         console.error("Email error:", data.error);

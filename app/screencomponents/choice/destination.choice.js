@@ -29,9 +29,9 @@ export default function DestinationChoice({ selected = [], onChange }) {
       </span>
 
       {/* Carousel container */}
-      <div className="w-full max-w-7xl p-4">
+      <div className="w-full max-w-7xl md:p-4">
         <Carousel className="w-full">
-          <CarouselContent className="flex items-center justify-center p-4 gap-4">
+          <CarouselContent className="flex items-center justify-center md:p-4 gap-4">
             {destinations.map((item) => {
               const isSelected = selected.includes(item.title);
               return (
