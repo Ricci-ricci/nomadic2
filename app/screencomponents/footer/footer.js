@@ -5,7 +5,7 @@ export default function Footer() {
   const footerData = {
     slogan: "Travel beyond your imagination with our travel agency",
     address: {
-      line1: "102 M/car",
+      line1: "102 Madagascar",
       city: "Antananarivo",
       area: "Fenoarivo",
       faqandprivacy: "Privacy and policy",
