@@ -1,12 +1,17 @@
-import { Resend } from "resend";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import nodemailer from "nodemailer";
 
 export async function POST(req) {
   try {
     const { to, subject, message } = await req.json();
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.GMAIL_USER, // your Gmail address
+        pass: process.env.GMAIL_PASS, // your app password
+      },
+    });
 
-    const data = await resend.emails.send({
+    const data = await transporter.sendMail({
       from: "Trip Planner <onboarding@resend.dev>",
       to,
       subject,

@@ -174,7 +174,7 @@ export default function OnePackageScreen({ Package }) {
               <DialogTrigger className="bg-yellow-400 cursor-pointer text-white font-bold py-2 px-4 rounded">
                 Book
               </DialogTrigger>
-              <DialogContent className="h-[400px] overflow-hidden">
+              <DialogContent className="h-[400px] md:h-[600px] ">
                 <DialogHeader>
                   <DialogTitle className="font-bold">OFFRE</DialogTitle>
 

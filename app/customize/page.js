@@ -66,6 +66,7 @@ export default function Customise() {
         body: JSON.stringify({
           to: [
             "riccireese13@gmail.com",
+            "riccireese15@gmail.com",
             "nomadiczebu@gmail.com",
             "stephanie.nomadic@gmail.com",
             "franck.nomadiczebu@gmail.com",
