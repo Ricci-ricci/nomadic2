@@ -53,12 +53,17 @@ const GuideRentalData = [
 
 export default function GuidePresentation() {
   // 🔹 Email sending function using Resend
-  const handleSendEmail = async (email, guideName) => {
+  const handleSendEmail = async (email, guideName, name, firstName) => {
     try {
       const res = await fetch("/api/guide", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, contentTitle: guideName }),
+        body: JSON.stringify({
+          name,
+          firstName,
+          email,
+          contentTitle: guideName,
+        }),
       });
 
       const data = await res.json();
@@ -119,8 +124,8 @@ export default function GuidePresentation() {
                       <DialogTitle>Book Guide: {guide.nom}</DialogTitle>
 
                       <Email
-                        handleSend={(email) =>
-                          handleSendEmail(email, guide.nom)
+                        handleSend={(email, name, firstName) =>
+                          handleSendEmail(email, guide.nom, name, firstName)
                         }
                       />
                     </DialogHeader>

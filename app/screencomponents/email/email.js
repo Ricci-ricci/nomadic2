@@ -3,16 +3,18 @@ import { useState } from "react";
 export default function Email({ handleSend }) {
   const [sent, setSent] = useState(false);
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [sending, setSending] = useState(false); // New state for loading animation
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true); // Start animation
     try {
-      await handleSend(email);
+      await handleSend(email, name, firstName);
       setSent(true);
     } catch (error) {
-      console.error("Error sending email:", error);
+      console.error("Error sending email and name:", error);
       alert("Une erreur est survenue. Veuillez réessayer.");
     } finally {
       setSending(false); // Stop animation
@@ -35,8 +37,26 @@ export default function Email({ handleSend }) {
       ) : (
         <form onSubmit={handleSubmit} className="flex gap-2 flex-col">
           <input
+            type="name"
+            placeholder="Please enter your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="flex-1 border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            required
+            disabled={sending} // disable input during sending
+          />
+          <input
+            type="firstname"
+            placeholder="Please enter your firstname"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            className="flex-1 border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            required
+            disabled={sending} // disable input during sending
+          />
+          <input
             type="email"
-            placeholder="Entrez votre e-mail"
+            placeholder="Please enter your gmail address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="flex-1 border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"

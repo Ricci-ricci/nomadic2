@@ -39,7 +39,7 @@ export default function Customise() {
   };
 
   // 📨 Send email to yourself with trip data and user email
-  const sendEmail = async (userEmail) => {
+  const sendEmail = async (userEmail, name, firstName) => {
     const { destinations, budget, duration, personalNote } = choices;
 
     if (destinations.length === 0 || !budget || !duration) {
@@ -50,6 +50,8 @@ export default function Customise() {
     // HTML formatted email
     const message = `
       <h2>✈️ New Trip Request</h2>
+       <p><strong>FirstName:</strong> ${firstName}</p>
+        <p><strong>name:</strong> ${name}</p>
       <p><strong>Destination(s):</strong> ${destinations.join(", ")}</p>
       <p><strong>Budget:</strong> ${budget}</p>
       <p><strong>Duration:</strong> ${duration}</p>

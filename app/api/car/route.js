@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(req) {
   try {
-    const { email, contentTitle } = await req.json();
+    const { email, contentTitle, name, firstName } = await req.json();
 
     // Create reusable transporter using Gmail SMTP
     const transporter = nodemailer.createTransport({
@@ -31,6 +31,8 @@ export async function POST(req) {
         <p>Un utilisateur a soumis une demande de réservation.</p>
         <p><strong>Email :</strong> ${email}</p>
         <p><strong>Service :</strong> ${contentTitle}</p>
+        <p><strong>name :</strong> ${name}</p>
+        <p><strong>firstName :</strong> ${firstName}</p>
       `,
     });
 

@@ -35,12 +35,12 @@ export default function ServicesCarousel({ contents }) {
     });
   }, [api]);
 
-  const handleSendEmail = async (email, title) => {
+  const handleSendEmail = async (email, title, name, firstName) => {
     try {
       const res = await fetch("/api/car", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, contentTitle: title }),
+        body: JSON.stringify({ email, contentTitle: title, name, firstName }),
       });
 
       const data = await res.json();
@@ -99,8 +99,13 @@ export default function ServicesCarousel({ contents }) {
                             </DialogTitle>
 
                             <Email
-                              handleSend={async (email) =>
-                                handleSendEmail(email, content.title)
+                              handleSend={async (email, name, firstName) =>
+                                handleSendEmail(
+                                  email,
+                                  content.title,
+                                  name,
+                                  firstName,
+                                )
                               }
                             />
                           </DialogHeader>

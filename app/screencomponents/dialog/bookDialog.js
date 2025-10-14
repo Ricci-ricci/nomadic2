@@ -9,14 +9,16 @@ export default function BookDialog({ Package }) {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const sendBooking = async (userEmail) => {
+  const sendBooking = async (userEmail, userName, userFirstName) => {
     setLoading(true);
     try {
       const res = await fetch("/api/send-booking", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          name: userName,
           email: userEmail,
+          firstName: userFirstName,
           packageName: Package.title,
           price: Package.price,
         }),
@@ -52,7 +54,7 @@ export default function BookDialog({ Package }) {
   return (
     <div className=" p-4 md:p-6 w-full max-w-md mx-auto h-full">
       <div className="flex flex-col md:flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-        <span className="text-2xl md:text-3xl font-bold text-gray-900 text-center sm:text-left">
+        <span className="text-2xl md:text-2xl font-bold text-gray-900 text-center sm:text-left">
           {Package.title}
         </span>
         <span className="text-xl md:text-2xl text-yellow-500 font-extrabold text-center sm:text-right">
@@ -60,12 +62,12 @@ export default function BookDialog({ Package }) {
         </span>
       </div>
 
-      <div className="bg-gray-50 rounded-lg p-4 md:p-5 hidden md:flex flex-col gap-3 border border-gray-200 shadow-sm">
+      <div className="bg-gray-50 rounded-lg p-4 md:p-5 hidden md:flex md:flex-row flex-col gap-3 border border-gray-200 shadow-sm">
         <div>
           <span className="text-md md:text-base font-semibold mb-1 text-gray-700 block">
             Included:
           </span>
-          <span className="text-sm md:text-sm text-gray-600 whitespace-pre-line leading-relaxed">
+          <span className="text-sm md:text-xs text-gray-600 whitespace-pre-line leading-relaxed">
             {Package.included}
           </span>
         </div>
@@ -74,7 +76,7 @@ export default function BookDialog({ Package }) {
           <span className="text-md md:text-base font-semibold mb-1 text-gray-700 block">
             Not Included:
           </span>
-          <span className="text-sm md:text-sm text-gray-600 whitespace-pre-line leading-relaxed">
+          <span className="text-sm md:text-xs text-gray-600 whitespace-pre-line leading-relaxed">
             {Package.notIncluded}
           </span>
         </div>
