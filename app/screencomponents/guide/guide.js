@@ -88,19 +88,19 @@ export default function GuidePresentation() {
           ready to make your adventure unforgettable.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
           {GuideRentalData.map((guide, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col p-4"
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-row p-4"
             >
               {/* Image with fixed height */}
-              <div className="w-full h-64 relative">
+              <div className="w-64 h-64 relative">
                 <Image
                   src={guide.image}
                   alt={`${guide.nom} - ${guide.title}`}
                   fill
-                  className="object-cover w-full h-full"
+                  className="object-cover w-full h-full rounded-lg"
                 />
               </div>
 
@@ -115,7 +115,7 @@ export default function GuidePresentation() {
                 {/* Dialog */}
                 <Dialog>
                   <DialogTrigger asChild>
-                    <button className="mt-4 bg-yellow-400 text-white font-bold px-6 py-2 rounded-lg hover:bg-yellow-500 transition">
+                    <button className="mt-4 bg-yellow-400 text-white font-bold  md:px-6 md:py-2 rounded-lg hover:bg-yellow-500 transition">
                       Book This Guide
                     </button>
                   </DialogTrigger>
