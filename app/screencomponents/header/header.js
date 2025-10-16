@@ -24,17 +24,17 @@ export default function Header({ menuColor, logo, button }) {
   const SOCIALS = [
     {
       icon: <Facebook size={20} />,
-      href: "https://facebook.com",
+      href: "https://www.facebook.com/profile.php?id=61579252721847",
       color: "text-blue-600",
     },
     {
       icon: <Instagram size={20} />,
-      href: "https://instagram.com",
+      href: "https://www.instagram.com/nomadiczebumdg?igsh=MXUxNHd1bjdxOTZ1Yg%3D%3D",
       color: "text-pink-500",
     },
     {
       icon: <MessageCircle size={20} />,
-      href: "https://wa.me/1234567890", // WhatsApp link
+      href: "https://wa.me/261349777645?text=GoodMorning%2C%20I%20wish%20to%20make%20a%20trip%20reservation", // WhatsApp link
       color: "text-green-500",
     },
   ];

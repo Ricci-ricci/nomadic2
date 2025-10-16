@@ -13,9 +13,11 @@ export default function Footer() {
     contact: {
       phone: "+261 34 97 776 45",
       email: "nomadiczebu@gmail.com",
-      whatsapp: "+261 34 97 776 45",
-      facebook: "NomadicZebu",
-      instagram: "NomadicZebu",
+      whatsapp:
+        "https://wa.me/261349777645?text=GoodMorning%2C%20I%20wish%20to%20make%20a%20trip%20reservation",
+      facebook: "https://www.facebook.com/profile.php?id=61579252721847",
+      instagram:
+        "https://www.instagram.com/nomadiczebumdg?igsh=MXUxNHd1bjdxOTZ1Yg%3D%3D",
     },
     autorisation: {
       autorisation1: "N°: 68-MTA/SG/DGT/SAT-EDBM.25",
@@ -64,7 +66,7 @@ export default function Footer() {
         <div className="flex gap-3 mt-2 text-white">
           {/* WhatsApp */}
           <Link
-            href={`https://wa.me/${footerData.contact.whatsapp.replace(/\D/g, "")}`}
+            href={`${footerData.contact.whatsapp}`}
             target="_blank"
             className="hover:text-green-400 transition"
           >
@@ -81,7 +83,7 @@ export default function Footer() {
 
           {/* Facebook */}
           <Link
-            href={`https://www.facebook.com/${footerData.contact.facebook}`}
+            href={`{footerData.contact.facebook}`}
             target="_blank"
             className="hover:text-blue-400 transition"
           >
@@ -98,7 +100,7 @@ export default function Footer() {
 
           {/* Instagram */}
           <Link
-            href={`https://www.instagram.com/${footerData.contact.instagram}`}
+            href={`${footerData.contact.instagram}`}
             target="_blank"
             className="hover:text-pink-400 transition"
           >
