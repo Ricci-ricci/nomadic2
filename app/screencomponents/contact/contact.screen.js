@@ -48,7 +48,7 @@ export default function ContactScreen() {
 
   return (
     <Container>
-      <div className="flex flex-col gap-12 py-12 max-w-3xl mx-auto">
+      <div className="flex flex-col gap-12 py-32 max-w-3xl mx-auto">
         <h1 className="text-5xl font-bold text-black text-center">
           Contact Us
         </h1>

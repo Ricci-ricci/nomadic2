@@ -4,7 +4,7 @@ import Header from "../screencomponents/header/header";
 export default function ContactPage() {
   return (
     <>
-      <Header></Header>
+      <Header menuColor="text-white" button="text-white"></Header>
       <ContactScreen></ContactScreen>
       <Footer></Footer>
     </>

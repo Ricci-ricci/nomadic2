@@ -31,7 +31,7 @@ export default function HeadCarousel() {
   }, [emblaApi]);
 
   return (
-    <div className="relative w-full h-[80vh] md:h-screen overflow-hidden">
+    <div className="relative w-full h-[80vh] md:h-screen flex  overflow-hidden">
       {/* Background carousel */}
       <div className="absolute inset-0 -z-10" ref={emblaRef}>
         <div className="flex h-full">
@@ -50,13 +50,7 @@ export default function HeadCarousel() {
       </div>
 
       {/* Content above carousel */}
-      <div className="relative z-10 flex flex-col justify-between h-full p-4 md:p-8 text-white">
-        <Header
-          menuColor="text-white"
-          logo="text-white"
-          button="text-white border-white"
-        />
-
+      <div className="relative z-10 flex flex-col justify-end items-start h-full p-4 md:p-8 text-white">
         {/* Title & Description */}
         <div className="flex flex-col gap-4 md:gap-6 max-w-xl md:max-w-4xl px-2 md:px-24">
           <h1 className="text-3xl sm:text-4xl md:text-7xl font-extrabold drop-shadow-lg transition-opacity duration-700">
@@ -73,7 +67,7 @@ export default function HeadCarousel() {
             </Link>
             <Link href={`/customize`}>
               <Button className="bg-yellow-400 px-6 sm:px-8 py-2 text-sm sm:text-base text-white font-bold cursor-pointer w-fit">
-                Customized Trip
+                Customize Trip
               </Button>
             </Link>
           </div>

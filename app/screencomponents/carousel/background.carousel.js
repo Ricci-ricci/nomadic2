@@ -15,7 +15,7 @@ export default function BackgroundCarousel({ images }) {
   ];
 
   const texts = [
-    "Unforgettable in the heart of Baobab",
+    "Unforgettable sunset in the heart of Baobab",
     "Relaxing moment",
     "The Malagasy smiling people",
     "Unique fauna and flora",
@@ -63,11 +63,6 @@ export default function BackgroundCarousel({ images }) {
 
       {/* Contenu au-dessus */}
       <div className="relative z-10 flex items-center justify-start h-full flex-col p-4 text-white">
-        <Header
-          menuColor="text-white"
-          logo="text-white"
-          button="border-white text-white"
-        ></Header>
         <div className="flex w-full h-full items-center md:items-end justify-center md:justify-start p-4">
           <div className="w-[80vh] py-8">
             <h1 className="text-4xl text-center md:text-6xl font-bold drop-shadow-lg transition-opacity duration-700">

@@ -4,11 +4,11 @@ import Container from "../bodycomponents/container";
 export default function PrivacyPage() {
   return (
     <Container>
-      <div className="flex flex-col gap-8 py-12 max-w-5xl mx-auto">
+      <div className="flex flex-col gap-8 py-32 max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold text-black text-center">
           Privacy Policy
         </h1>
-        <div className="text-gray-700 text-lg space-y-4 overflow-auto max-h-[70vh] p-4 border rounded-lg shadow-lg">
+        <div className="text-gray-700 text-lg space-y-4 overflow-auto  p-4 border rounded-lg shadow-lg">
           <p>Last updated: 8/28/2025</p>
           <p>
             At NOMADIC ZEBU Madagascar Travel Tour, we take the protection of

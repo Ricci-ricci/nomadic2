@@ -21,9 +21,9 @@ export default function DestinationChoice({ selected = [], onChange }) {
   };
 
   return (
-    <div className="px-6 py-10 flex flex-col items-center justify-center gap-8 w-full">
+    <div className="px-6 py-12 flex flex-col items-center justify-center gap-8 w-full">
       {/* Title */}
-      <span className="text-2xl sm:text-4xl md:text-5xl font-semibold text-center max-w-3xl leading-snug">
+      <span className="text-2xl sm:text-4xl md:text-5xl font-semibold text-center max-w-3xl leading-snug ">
         Pick all the destinations you dream of visiting! <br />
         <span className="text-yellow-400">Here in Madagascar </span>
       </span>

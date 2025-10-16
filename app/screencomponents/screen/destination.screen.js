@@ -9,6 +9,11 @@ import { Destination } from "@/lib/data/destination";
 export default function DestinationScreen() {
   return (
     <>
+      <Header
+        menuColor="text-white"
+        logo="text-white"
+        button="text-white border-white"
+      />
       <HeadCarousel></HeadCarousel>
       <More contents={Destination()}></More>
       <Best></Best>

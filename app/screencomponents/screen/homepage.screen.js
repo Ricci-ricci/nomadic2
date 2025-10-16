@@ -7,9 +7,15 @@ import Special from "../special/special";
 import Best from "../best/best";
 import Footer from "../footer/footer";
 import BestDestination from "../best/best";
+import Header from "../header/header";
 export default function HomePageScreen() {
   return (
     <>
+      <Header
+        menuColor="text-white"
+        logo="text-white"
+        button="border-white text-white"
+      ></Header>
       <BackgroundCarousel></BackgroundCarousel>
       <Content
         content={destination()}

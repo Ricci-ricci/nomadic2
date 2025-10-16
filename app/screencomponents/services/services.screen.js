@@ -72,7 +72,7 @@ export default function ServicesScreen() {
 
   return (
     <Container>
-      <div className="flex flex-col gap-12 py-12">
+      <div className="flex flex-col gap-12 py-32">
         <h1 className="text-4xl md:text-6xl font-bold text-center text-black">
           Our Services
         </h1>

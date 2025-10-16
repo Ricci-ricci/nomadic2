@@ -94,11 +94,11 @@ export default function Customise() {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <Header />
+      <Header menuColor="text-white" button="text-white" />
 
       {/* Hero Section */}
-      <div className="flex flex-col items-center justify-center w-screen gap-4 h-[40vh] md:h-[80vh]">
-        <span className="text-4xl md:text-8xl font-bold mb-4 text-center text-yellow-400 font-edu-vic">
+      <div className="flex flex-col items-center justify-center w-screen gap-4 h-[40vh] md:h-[80vh] ">
+        <span className="text-4xl md:text-8xl font-bold mb-4 text-center text-yellow-400 font-edu-vic ">
           Plan your perfect trip
         </span>
         <span className="text-xl md:text-4xl font-bold mb-4 max-w-xl text-center">
@@ -143,7 +143,7 @@ export default function Customise() {
         <Dialog>
           <DialogTrigger className="flex items-center gap-3 mt-8 px-10 py-6 text-xl bg-yellow-400 hover:bg-yellow-500 text-white rounded-full shadow-lg transition-all duration-300 hover:scale-105">
             <CheckCircle size={24} />
-            Confirm my trip
+            Send to Designer
           </DialogTrigger>
 
           <DialogContent>
