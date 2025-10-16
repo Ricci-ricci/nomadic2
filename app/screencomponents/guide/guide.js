@@ -136,7 +136,7 @@ export default function GuidePresentation() {
           {guide.map((guide, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-row p-4"
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row p-4"
             >
               {/* Image with fixed height */}
               <div className="w-64 h-64 relative">
