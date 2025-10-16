@@ -165,7 +165,8 @@ export default function Customise() {
             htmlFor="personalNote"
             className="text-lg font-semibold text-gray-700"
           >
-            Any special requests or personal preferences?
+            Feel free to ask us about your special requests or personal
+            preferences
           </label>
           <textarea
             id="personalNote"
