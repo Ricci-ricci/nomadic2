@@ -136,7 +136,7 @@ export default function GuidePresentation() {
           {guide.map((guide, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row p-4"
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 items-center justify-center flex flex-col md:flex-row p-4"
             >
               {/* Image with fixed height */}
               <div className="w-64 h-64 relative">
@@ -161,7 +161,7 @@ export default function GuidePresentation() {
                 {/* Dialog */}
                 <Dialog>
                   <DialogTrigger asChild>
-                    <button className="mt-4 bg-yellow-400 text-white font-bold  md:px-6 md:py-2 rounded-lg hover:bg-yellow-500 transition">
+                    <button className="mt-4 bg-yellow-400 text-white font-bold px-4 py-1  md:px-6 md:py-2 rounded-lg hover:bg-yellow-500 transition">
                       Book This Guide
                     </button>
                   </DialogTrigger>
