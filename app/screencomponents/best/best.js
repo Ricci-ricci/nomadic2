@@ -3,7 +3,7 @@ import Container from "../bodycomponents/container";
 import Link from "next/link";
 
 export default function BestDestination() {
-  const TXT2 = "One our flagship destination :";
+  const TXT2 = "One of our flagship destination :";
   const destinations = {
     id: 5,
     title: "nosy be",

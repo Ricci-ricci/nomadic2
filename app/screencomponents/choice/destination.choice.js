@@ -31,17 +31,17 @@ export default function DestinationChoice({ selected = [], onChange }) {
       {/* Carousel container */}
       <div className="w-full max-w-7xl md:p-4">
         <Carousel className="w-full">
-          <CarouselContent className="flex items-center justify-center md:p-4 gap-4">
+          <CarouselContent className="flex items-center justify-center md:p-12 gap-4 ">
             {destinations.map((item) => {
               const isSelected = selected.includes(item.title);
               return (
                 <CarouselItem
                   key={item.id}
-                  className="basis-full sm:basis-1/2 lg:basis-1/3 flex justify-center"
+                  className="basis-full sm:basis-1/2 lg:basis-1/5 md:basis-1/6 flex justify-center "
                 >
                   <div
                     onClick={() => toggleSelect(item.title)}
-                    className={`relative cursor-pointer rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 w-[90%] sm:w-[280px] md:w-[320px] lg:w-[360px] h-[400px] ${
+                    className={`relative cursor-pointer rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 w-[90%] sm:w-[50px] md:w-[20px] lg:w-[360px] h-[200px] ${
                       isSelected
                         ? "ring-4 ring-yellow-400 scale-105"
                         : "hover:scale-105"

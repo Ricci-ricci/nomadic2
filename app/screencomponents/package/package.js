@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 export default function Package({ Package }) {
   const router = useRouter();
   const TEXT2 =
-    "Whatever your website style, we have the perfect package for you. Make your choice";
+    "Whatever your Trip plan, we have the perfect package for you. Make your choice";
 
   return (
     <Container>

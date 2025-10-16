@@ -184,7 +184,7 @@ export default function OnePackageScreen({ Package }) {
             </Dialog>
             <Link href="/customize">
               <Button className="bg-yellow-400 text-white font-bold py-2 px-4 rounded w-full">
-                Customized Trip
+                Customise
               </Button>
             </Link>
           </div>

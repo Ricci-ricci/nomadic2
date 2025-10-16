@@ -11,6 +11,50 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import Email from "../email/email";
+const guide = [
+  {
+    title: "Floriel",
+    skills: "	Accompanier Guide & Experienced Driver",
+    description:
+      "Floriel is a highly experienced guide and driver, recognized for his excellent timing and extensive knowledge of Madagascar’s tourist sites and attractions.\n Having worked with several travel agencies across the country, he brings both reliability and expertise to every journey.\n Passionate about the road, cars, and tourism, he ensures smooth and enjoyable trips for all travelers",
+    image: `/floriel.jpg`,
+  },
+  {
+    title: "Patrice",
+    skills: "Bilingual Nature Guide (English & French)",
+    description:
+      "Patrice is a passionate tour guide fluent in both English and French.\n Born and raised in Andasibe, he began his career inside the rainforest itself.\n His deep knowledge of Madagascar’s fauna and flora makes him an excellent guide for nature lovers, always ensuring an enriching and satisfying experience",
+    image: `/patrice.jpg`,
+  },
+  {
+    title: "Nambinina ",
+    skills: "English-Speaking Tour Guide",
+    description:
+      "Nambinina is a specialist in guiding and accompanying groups across Madagascar.\n Passionate about the island’s unique biodiversity, he shares his knowledge with enthusiasm. \n Known for his sense of humor, he ensures that every journey is not only informative but also full of joy.",
+    image: `/nambinina.jpg`,
+  },
+  {
+    title: "Justin",
+    skills: "Trekking & Climbing Specialist",
+    description:
+      "Justin is one of our expert accompaniers, specializing in trekking, rock climbing, \n and the ascent of Pic Boby Madagascar’s second-highest accessible peak.\n With his deep knowledge of the trails and passion for adventure, he ensures every climb is both safe and unforgettable.",
+    image: `/justin.jpg`,
+  },
+  {
+    title: "Marc 	",
+    skills: "Experienced Bilingual Guide",
+    description:
+      "Marc is one of our highly experienced guides, fluent in both English and French. Having worked with several renowned travel agencies as a freelance guide, he brings a wealth of knowledge and professionalism to every journey.\n In addition to guiding, Marc also teaches and serves as a local guide in a private park in Antananarivo,\n where he shares his passion for Madagascar’s unique biodiversity and culture.\n His deep understanding of the country ensures that every traveler enjoys a well-guided, insightful, and memorable experience.",
+    image: `/marc.jpg`,
+  },
+  {
+    title: "Riri ",
+    skills: "Specialist Pirogue & River Guide",
+    description:
+      "Riri is our pirogue and boat specialist, guiding travelers along the beautiful Pangalanes River from Manakara to Ampasimanjeva.\n With his warm personality and sense of humor, he knows how to create joyful moments and make every bivouac between the Pangalanes River and the Indian Ocean unforgettable.\n Riri is also an excellent cook, especially when it comes to preparing fresh, typical seafood dishes from Madagascar’s southeast coast, a true highlight of the journey.",
+    image: `/riri.jpg`,
+  },
+];
 
 const GuideRentalData = [
   {
@@ -89,7 +133,7 @@ export default function GuidePresentation() {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
-          {GuideRentalData.map((guide, index) => (
+          {guide.map((guide, index) => (
             <div
               key={index}
               className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-row p-4"
@@ -107,8 +151,10 @@ export default function GuidePresentation() {
               {/* Content */}
               <div className="p-6 flex flex-col flex-1 justify-between">
                 <div>
-                  <h2 className="text-2xl font-bold text-black">{guide.nom}</h2>
-                  <p className="text-lg text-yellow-400">{guide.title}</p>
+                  <h2 className="text-2xl font-bold text-black">
+                    {guide.title}
+                  </h2>
+                  <p className="text-lg text-yellow-400">{guide.skills}</p>
                   <p className="text-gray-600 mt-2">{guide.description}</p>
                 </div>
 
