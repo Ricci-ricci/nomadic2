@@ -73,7 +73,7 @@ export default function Header({ menuColor, logo, button }) {
             href={social.href}
             target="_blank"
             rel="noopener noreferrer"
-            className={`p-2 rounded-full hover:bg-gray-200 transition ${social.color}`}
+            className={`p-2 rounded-full bg-white hover:bg-yellow-400 transition ${social.color}`}
           >
             {social.icon}
           </a>

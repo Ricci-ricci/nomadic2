@@ -8,7 +8,7 @@ import Header from "../header/header";
 export default function OneDestinationScreen({ data, offers, destination }) {
   return (
     <div>
-      <Header button="text-black border-black"></Header>
+      <Header button="text-white border-white" menuColor="text-white"></Header>
       <DestinationImage data={data}></DestinationImage>
       <Package Package={offers}></Package>
       <ShowMore content={destination}></ShowMore>

@@ -132,7 +132,7 @@ export default function GuidePresentation() {
           ready to make your adventure unforgettable.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-24">
           {guide.map((guide, index) => (
             <div
               key={index}

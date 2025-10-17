@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Wallet, Coins, Gem, DollarSign } from "lucide-react";
+import Container from "../bodycomponents/container";
 
 export default function BudgetChoice({ selected, onChange }) {
   // Generate budget ranges dynamically (increments of 500 until 4000)
@@ -37,7 +38,7 @@ export default function BudgetChoice({ selected, onChange }) {
   };
 
   return (
-    <div className="px-6 py-10 flex flex-col items-center gap-10 w-full">
+    <Container className="px-6 flex flex-col items-center gap-10 w-full">
       {/* Title */}
       <h2 className="text-2xl sm:text-4xl md:text-5xl font-semibold text-center max-w-2xl leading-snug">
         Choose your travel budget!
@@ -65,6 +66,6 @@ export default function BudgetChoice({ selected, onChange }) {
           );
         })}
       </div>
-    </div>
+    </Container>
   );
 }

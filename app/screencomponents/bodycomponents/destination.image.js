@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Container from "./container";
 
 export default function DestinationImage({ data }) {
   return (
-    <div className="flex flex-col md:justify-start md:items-start items-center justify-center py-8 px-4 md:px-42">
+    <Container className="flex flex-col md:justify-start md:items-start items-center justify-center py-8 px-4 md:px-42">
       <div className="flex flex-col lg:flex-row gap-6 w-full">
         {/* Image principale */}
         <div className="flex-shrink-0 w-full lg:w-[70%]">
@@ -43,6 +44,6 @@ export default function DestinationImage({ data }) {
           {data?.description}
         </p>
       </div>
-    </div>
+    </Container>
   );
 }

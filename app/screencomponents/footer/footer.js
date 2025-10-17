@@ -60,7 +60,6 @@ export default function Footer() {
         </Link>
         <span>{footerData.contact.phone}</span>
         <span>{footerData.contact.email}</span>
-        <span>{footerData.contact.facebook}</span>
 
         {/* Social buttons without background */}
         <div className="flex gap-3 mt-2 text-white">
@@ -83,7 +82,7 @@ export default function Footer() {
 
           {/* Facebook */}
           <Link
-            href={`{footerData.contact.facebook}`}
+            href={`${footerData.contact.facebook}`}
             target="_blank"
             className="hover:text-blue-400 transition"
           >
