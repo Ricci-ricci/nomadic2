@@ -31,7 +31,7 @@ export default function HeadCarousel() {
   }, [emblaApi]);
 
   return (
-    <div className="relative w-full h-[80vh] md:h-screen flex  overflow-hidden">
+    <div className="relative max-w-[1920px] w-full h-[80vh] md:h-screen flex  overflow-hidden">
       {/* Background carousel */}
       <div className="absolute inset-0 -z-10" ref={emblaRef}>
         <div className="flex h-full">

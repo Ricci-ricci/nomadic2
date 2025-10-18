@@ -24,7 +24,7 @@ import BookDialog from "../dialog/bookDialog";
 
 export default function OnePackageScreen({ Package }) {
   return (
-    <div className="relative w-full flex flex-col gap-12 p-6 md:p-24">
+    <div className="relative w-full flex flex-col gap-12 p-6 md:p-24 max-w-[1920px]">
       {/* Header Image */}
       <div className="relative w-full h-60 md:h-[60vh] rounded-xl overflow-hidden">
         <Image

@@ -17,7 +17,7 @@ export default function Special() {
         italic4: " experience authentic",
         textAfter: "hidden gems beyond the usual tourist paths.",
       },
-      image: "/destination/Antananarivo/principal.jpg",
+      image: "/hello.jpeg",
     },
     {
       title: "Our Expertise",

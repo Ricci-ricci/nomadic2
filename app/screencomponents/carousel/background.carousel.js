@@ -45,7 +45,7 @@ export default function BackgroundCarousel({ images }) {
   }, [emblaApi]);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full max-w-[1920px] h-screen overflow-hidden">
       {/* Carousel en background */}
       <div className="absolute inset-0 -z-10" ref={emblaRef}>
         <div className="flex h-full">

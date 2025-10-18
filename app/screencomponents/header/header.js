@@ -40,7 +40,7 @@ export default function Header({ menuColor, logo, button }) {
   ];
 
   return (
-    <nav className="flex items-center bg-black/30 px-6 py-4 w-full fixed top-0 z-50">
+    <nav className="flex items-center bg-black/30 px-6 py-4 w-full fixed top-0 z-50 max-w-[1920px]">
       {/* Logo (always visible, left side) */}
       <div className="flex-1 flex justify-start">
         {MENU.filter((item) => item.type === "logo").map((item, i) => (
