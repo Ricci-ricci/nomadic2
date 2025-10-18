@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import Header from "../header/header";
+
 export default function BackgroundCarousel({ images }) {
   const slides = images || [
     "/background/b1.png",
@@ -26,27 +28,36 @@ export default function BackgroundCarousel({ images }) {
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [fade, setFade] = useState(false);
 
-  // Gérer l’autoplay
+  // Autoplay
   useEffect(() => {
     if (!emblaApi) return;
     const autoplay = setInterval(() => emblaApi.scrollNext(), 8000);
     return () => clearInterval(autoplay);
   }, [emblaApi]);
 
-  // Mettre à jour le texte quand le slide change
+  // Handle slide change and fade text
   useEffect(() => {
     if (!emblaApi) return;
+
     const onSelect = () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap());
+      setFade(true);
+      setTimeout(() => {
+        setSelectedIndex(emblaApi.selectedScrollSnap());
+        setFade(false);
+      }, 300);
     };
+
     emblaApi.on("select", onSelect);
-    onSelect(); // initial
+    onSelect();
   }, [emblaApi]);
 
   return (
     <div className="relative w-full max-w-[1920px] h-screen overflow-hidden">
-      {/* Carousel en background */}
+      <Header menuColor="text-white" button="text-white" />
+
+      {/* Background carousel */}
       <div className="absolute inset-0 -z-10" ref={emblaRef}>
         <div className="flex h-full">
           {slides.map((img, index) => (
@@ -55,21 +66,44 @@ export default function BackgroundCarousel({ images }) {
               className="flex-[0_0_100%] h-full bg-cover bg-center relative"
               style={{ backgroundImage: `url(${img})` }}
             >
-              <div className="absolute inset-0 h-full bg-black/30"></div>
+              <div className="absolute inset-0 bg-black/40"></div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Contenu au-dessus */}
-      <div className="relative z-10 flex items-center justify-start h-full flex-col p-4 text-white">
-        <div className="flex w-full h-full items-center md:items-end justify-center md:justify-start p-4">
-          <div className="w-[80vh] py-8">
-            <h1 className="text-4xl text-center md:text-6xl font-bold drop-shadow-lg transition-opacity duration-700">
-              {texts[selectedIndex]}
-            </h1>
-          </div>
-        </div>
+      {/* Foreground content */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-6">
+        {/* Changing subtitle */}
+        <p
+          className={`text-lg md:text-2xl italic mb-6 transition-opacity duration-700 ${
+            fade ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          {texts[selectedIndex]}
+        </p>
+
+        {/* Animated title */}
+        <motion.h1
+          key={selectedIndex} // re-triggers animation with each change
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="text-4xl md:text-6xl font-bold uppercase tracking-widest drop-shadow-lg mb-2"
+        >
+          Nomadic Zebu Travel & MDG Tour
+        </motion.h1>
+
+        {/* Animated slogan */}
+        <motion.span
+          key={`slogan-${selectedIndex}`}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+          className="text-xl md:text-3xl font-light drop-shadow-md"
+        >
+          Travel beyond your imagination with us
+        </motion.span>
       </div>
     </div>
   );
