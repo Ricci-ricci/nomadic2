@@ -96,7 +96,7 @@ export default function Header({ menuColor, logo, button }) {
         <Sheet>
           <SheetTrigger asChild>
             <button className="p-2 rounded-md border border-gray-300">
-              <Menu className="w-6 h-6" />
+              <Menu className="w-6 h-6 text-white" />
             </button>
           </SheetTrigger>
           <SheetContent className="w-54 p-4 flex flex-col gap-4">
