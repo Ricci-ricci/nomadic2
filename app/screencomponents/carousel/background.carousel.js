@@ -87,7 +87,7 @@ export default function BackgroundCarousel({ images }) {
         <motion.h1
           key={selectedIndex} // re-triggers animation with each change
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           className="text-4xl md:text-6xl font-bold uppercase tracking-widest drop-shadow-lg mb-2"
         >

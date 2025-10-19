@@ -52,7 +52,7 @@ export default function BookDialog({ Package }) {
 
   // Step 1 : Package info
   return (
-    <div className=" p-4 md:p-6 w-full max-w-md mx-auto h-full">
+    <div className=" p-4 md:p-6 w-full max-w-md mx-auto h-full flex flex-col gap-4">
       <div className="flex flex-col md:flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <span className="text-2xl md:text-2xl font-bold text-gray-900 text-center sm:text-left">
           {Package.title}

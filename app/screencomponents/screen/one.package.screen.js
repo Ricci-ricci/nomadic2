@@ -132,7 +132,7 @@ export default function OnePackageScreen({ Package }) {
                     height={200}
                     className="rounded-lg w-[250] h-[200] cursor-pointer"
                   />
-                  <p className="mt-2 text-center text-gray-700 font-medium">
+                  <p className="mt-2 text-center capitalize text-gray-700 font-medium">
                     {item.title}
                   </p>
                 </DialogTrigger>

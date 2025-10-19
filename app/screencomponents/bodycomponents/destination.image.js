@@ -3,7 +3,7 @@ import Container from "./container";
 
 export default function DestinationImage({ data }) {
   return (
-    <Container className="flex flex-col md:justify-start md:items-start items-center justify-center py-8 px-4 md:px-42">
+    <Container className="flex flex-col md:justify-start md:items-start items-center justify-center  py-8 px-4 md:px-42">
       <div className="flex flex-col lg:flex-row gap-6 w-full">
         {/* Image principale */}
         <div className="flex-shrink-0 w-full lg:w-[70%]">
@@ -34,7 +34,7 @@ export default function DestinationImage({ data }) {
       </div>
 
       {/* Informations */}
-      <div className="flex flex-col gap-6 py-8 w-full max-w-4xl">
+      <div className="flex flex-col gap-6 px-8 md:px-4 py-8 w-full max-w-4xl">
         <div className="flex flex-col sm:flex-row sm:items-center  gap-4">
           <div className="font-bold text-black text-3xl md:text-4xl">
             {data?.title}
