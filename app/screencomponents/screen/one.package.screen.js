@@ -80,7 +80,7 @@ export default function OnePackageScreen({ Package }) {
                 <path d="M12 6v3M12 11v2M12 15v2" />
               </svg>
             </div>
-            <span className="font-bold text-lg md:text-xl">
+            <span className="font-bold uppercase text-lg md:text-xl">
               {Package.difficulty}
             </span>
           </div>
