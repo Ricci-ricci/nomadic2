@@ -91,7 +91,7 @@ export default function BackgroundCarousel({ images }) {
           transition={{ duration: 1, ease: "easeOut" }}
           className="text-4xl md:text-6xl font-bold uppercase tracking-widest drop-shadow-lg mb-2"
         >
-          Nomadic Zebu Travel & MDG Tour
+          Nomadic Zebu Travel & Tour MDG
         </motion.h1>
 
         {/* Animated slogan */}
