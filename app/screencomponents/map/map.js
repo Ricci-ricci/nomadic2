@@ -98,13 +98,8 @@ function MultipleMarkers({ locations }) {
 }
 
 // 🔹 Composant principal
-export default function Map({ start, end }) {
+export default function Map({ start, end, places }) {
   // Exemple de plusieurs lieux à marquer
-  const places = [
-    { name: "Musée National", position: [-18.8792, 47.5079] },
-    { name: "Université d’Antananarivo", position: [-18.905, 47.525] },
-    { name: "Lac Anosy", position: [-18.92, 47.516] },
-  ];
 
   return (
     <div className="z-0">

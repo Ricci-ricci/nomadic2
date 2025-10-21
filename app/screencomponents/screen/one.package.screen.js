@@ -157,6 +157,7 @@ export default function OnePackageScreen({ Package }) {
               className="z-0"
               start={Package.start}
               end={Package.end}
+              places={Package.place}
             />
           </div>
           <div className="flex flex-col gap-4 border border-black rounded-lg p-4 bg-white shadow-lg">
