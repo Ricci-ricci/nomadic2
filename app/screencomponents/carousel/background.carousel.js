@@ -30,14 +30,12 @@ export default function BackgroundCarousel({ images }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [fade, setFade] = useState(false);
 
-  // Autoplay
   useEffect(() => {
     if (!emblaApi) return;
     const autoplay = setInterval(() => emblaApi.scrollNext(), 8000);
     return () => clearInterval(autoplay);
   }, [emblaApi]);
 
-  // Handle slide change and fade text
   useEffect(() => {
     if (!emblaApi) return;
 
@@ -57,7 +55,7 @@ export default function BackgroundCarousel({ images }) {
     <div className="relative w-full max-w-[1920px] h-screen overflow-hidden">
       <Header menuColor="text-white" button="text-white" />
 
-      {/* Background carousel */}
+      {/* 🌅 Background carousel */}
       <div className="absolute inset-0 -z-10" ref={emblaRef}>
         <div className="flex h-full">
           {slides.map((img, index) => (
@@ -66,44 +64,47 @@ export default function BackgroundCarousel({ images }) {
               className="flex-[0_0_100%] h-full bg-cover bg-center relative"
               style={{ backgroundImage: `url(${img})` }}
             >
-              <div className="absolute inset-0 bg-black/40"></div>
+              <div className="absolute inset-0 bg-black/50"></div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Foreground content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-6">
-        {/* Changing subtitle */}
-        <p
-          className={`text-lg md:text-2xl italic mb-6 transition-opacity duration-700 ${
-            fade ? "opacity-0" : "opacity-100"
-          }`}
-        >
-          {texts[selectedIndex]}
-        </p>
+      {/* 🌍 Foreground content */}
+      <div className="relative z-10 flex flex-col md:flex-row justify-center md:justify-between items-center h-full px-6 md:px-20 text-white">
+        {/* 🔹 Left changing text */}
+        <div className="flex-1 flex justify-center md:justify-start items-center md:items-start h-1/2 md:h-auto text-center md:text-left mb-6 md:mb-0">
+          <p
+            className={`text-lg md:text-3xl italic font-light transition-opacity duration-700 max-w-[90%] md:max-w-none ${
+              fade ? "opacity-0" : "opacity-100"
+            }`}
+          >
+            {texts[selectedIndex]}
+          </p>
+        </div>
 
-        {/* Animated title */}
-        <motion.h1
-          key={selectedIndex} // re-triggers animation with each change
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="text-4xl md:text-6xl font-bold uppercase tracking-widest drop-shadow-lg mb-2"
-        >
-          Nomadic Zebu Travel & Tour MDG
-        </motion.h1>
+        {/* 🔹 Right title + slogan */}
+        <div className="flex-1 text-center md:text-right">
+          <motion.h1
+            key={selectedIndex}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="text-3xl sm:text-4xl md:text-6xl font-bold uppercase tracking-widest drop-shadow-lg mb-4"
+          >
+            Nomadic Zebu <br /> Travel & Tour MDG
+          </motion.h1>
 
-        {/* Animated slogan */}
-        <motion.span
-          key={`slogan-${selectedIndex}`}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-          className="text-xl md:text-3xl font-light drop-shadow-md"
-        >
-          Travel beyond your imagination with us
-        </motion.span>
+          <motion.span
+            key={`slogan-${selectedIndex}`}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+            className="text-lg sm:text-xl md:text-2xl font-light drop-shadow-md"
+          >
+            Travel beyond your imagination with us
+          </motion.span>
+        </div>
       </div>
     </div>
   );
