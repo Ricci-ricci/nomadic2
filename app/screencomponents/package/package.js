@@ -32,7 +32,7 @@ export default function Package({ Package }) {
               className="w-full sm:w-[45%] lg:w-[30%] bg-white rounded-xl flex flex-col shadow-2xl relative overflow-hidden hover:scale-[1.02] transition-transform duration-300"
             >
               <Link
-                href={`/offer/${item.slug}`}
+                href={`/offer/${item.slug.current}`}
                 className="flex flex-col h-full"
               >
                 {/* Image */}
@@ -60,7 +60,7 @@ export default function Package({ Package }) {
                     <span className="font-bold text-lg">{item.price}</span>
 
                     <Button
-                      onClick={() => router.push(`/offer/${item.slug}`)}
+                      onClick={() => router.push(`/offer/${item.slug.current}`)}
                       className="px-6 bg-yellow-400"
                     >
                       Book
