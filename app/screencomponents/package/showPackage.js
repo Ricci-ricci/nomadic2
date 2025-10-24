@@ -1,7 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Container from "../bodycomponents/container";
 import Link from "next/link";
-
+import { urlFor } from "@/lib/sanityClient";
 export default function ShowPackage({ pack }) {
   const TEXT1 = "Next Adventure";
   const TEXT2 = "Some of our offers";
@@ -25,18 +27,18 @@ export default function ShowPackage({ pack }) {
           safePack.slice(0, 3).map((item, index) => (
             <Link
               key={index}
-              href={`/offer/${item.slug}`}
+              href={`/offer/${item.slug?.current || ""}`}
               className="flex flex-col relative w-full md:w-1/3 h-64 md:h-80 rounded-lg overflow-hidden"
             >
               <Image
-                src={item.image}
-                alt={item.title}
+                src={urlFor(item.image).width(600).height(400).url()}
+                alt={item.title || "package image"}
                 fill
                 className="object-cover rounded-lg"
               />
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
                 <h2 className="text-white font-bold text-lg md:text-xl">
-                  {item.title}
+                  {item.title || "Untitled"}
                 </h2>
               </div>
             </Link>

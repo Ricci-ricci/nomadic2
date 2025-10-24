@@ -1,5 +1,5 @@
 "use client";
-import { Destination } from "@/lib/data/destination";
+import { sanityDestination } from "@/lib/data/destination";
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import {
@@ -10,10 +10,23 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 import Container from "../bodycomponents/container";
+import { useEffect, useState } from "react";
+import { urlFor } from "@/lib/sanityClient";
 
 export default function DestinationChoice({ selected = [], onChange }) {
-  const destinations = Destination();
-
+  const [destinations, setDestinations] = useState([]);
+  useEffect(() => {
+    async function fetchDestinations() {
+      try {
+        const data = await sanityDestination();
+        console.log(data);
+        setDestinations(data); // save data in state
+      } catch (error) {
+        console.error("Error fetching destinations:", error);
+      }
+    }
+    fetchDestinations();
+  }, []); // empty dependency array → runs once on mount
   const toggleSelect = (title) => {
     const newSelection = selected.includes(title)
       ? selected.filter((item) => item !== title)
@@ -50,7 +63,7 @@ export default function DestinationChoice({ selected = [], onChange }) {
                   >
                     {/* Image */}
                     <Image
-                      src={item.image}
+                      src={urlFor(item.image).width(600).height(400).url()}
                       alt={item.title}
                       fill
                       className="object-cover"

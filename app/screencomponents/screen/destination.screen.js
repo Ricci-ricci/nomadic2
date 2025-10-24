@@ -5,8 +5,10 @@ import Footer from "../footer/footer";
 import Header from "../header/header";
 import More from "../more/more";
 import { Destination } from "@/lib/data/destination";
+import { sanityDestination } from "@/lib/data/destination";
 
-export default function DestinationScreen() {
+export default async function DestinationScreen() {
+  const destination = await sanityDestination();
   return (
     <>
       <Header
@@ -15,7 +17,7 @@ export default function DestinationScreen() {
         button="text-white border-white"
       />
       <HeadCarousel></HeadCarousel>
-      <More contents={Destination()}></More>
+      <More contents={destination}></More>
       <Best></Best>
       <Footer></Footer>
     </>

@@ -4,6 +4,7 @@ import Container from "../bodycomponents/container";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { urlFor } from "@/lib/sanityClient";
 
 export default function Package({ Package }) {
   const router = useRouter();
@@ -36,7 +37,7 @@ export default function Package({ Package }) {
               >
                 {/* Image */}
                 <Image
-                  src={item.image}
+                  src={urlFor(item.image).width(600).height(400).url()}
                   alt={item.title}
                   width={500}
                   height={300}

@@ -11,6 +11,7 @@ import Section from "../bodycomponents/section";
 import Container from "../bodycomponents/container";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { urlFor } from "@/lib/sanityClient";
 
 import { useState, useEffect } from "react";
 
@@ -46,12 +47,12 @@ export default function CarouselScreen({ contents }) {
                 className="basis-full md:basis-1/3 p-2 flex items-start justify-center h-[40vh] md:h-[50vh]"
               >
                 <Link
-                  href={`/destinations/${content.slug}`}
+                  href={`/destinations/${content.slug.current}`}
                   className="relative flex flex-col gap-4 w-full h-full"
                 >
                   <Image
                     className="rounded-lg cursor-pointer object-cover w-full h-full"
-                    src={content.image}
+                    src={urlFor(content.image).width(600).height(400).url()}
                     alt={content.title}
                     width={800}
                     height={800}

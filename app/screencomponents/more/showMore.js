@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Container from "../bodycomponents/container";
 import Link from "next/link";
-
+import { urlFor } from "@/lib/sanityClient";
 export default function ShowMore({ content }) {
   const TEXT1 = "Next adventure";
   const TEXT2 = "More Destinations";
@@ -29,12 +29,12 @@ export default function ShowMore({ content }) {
         {content.slice(0, 3).map((item, index) => (
           <Link
             key={index}
-            href={`/destinations/${item.slug}`}
+            href={`/destinations/${item.slug.current}`}
             className="flex flex-col w-full md:w-1/3 relative group"
           >
             {/* Destination image */}
             <Image
-              src={item.image}
+              src={urlFor(item.image).width(600).height(400).url()}
               alt={item.title}
               width={500}
               height={300}

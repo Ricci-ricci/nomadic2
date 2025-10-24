@@ -21,6 +21,7 @@ import Link from "next/link";
 import Map from "../map/map";
 import MapComponent from "../map/mapcomponent";
 import BookDialog from "../dialog/bookDialog";
+import { urlFor } from "@/lib/sanityClient";
 
 export default function OnePackageScreen({ Package }) {
   return (
@@ -28,7 +29,7 @@ export default function OnePackageScreen({ Package }) {
       {/* Header Image */}
       <div className="relative w-full h-60 md:h-[60vh] rounded-xl overflow-hidden">
         <Image
-          src={Package.image}
+          src={urlFor(Package.image).width(600).height(400).url()}
           alt={Package.title}
           fill
           className="object-cover"
@@ -92,7 +93,7 @@ export default function OnePackageScreen({ Package }) {
         {/* Left Content */}
         <div className="flex flex-col gap-8 md:gap-4 md:w-2/3">
           <span className="text-base md:text-lg whitespace-pre-line">
-            {Package.description}
+            {Package.description.replace(/\\n/g, "\n")}
           </span>
 
           {/* Itinerary */}
@@ -126,7 +127,7 @@ export default function OnePackageScreen({ Package }) {
 
                 <DialogTrigger>
                   <Image
-                    src={item.image}
+                    src={urlFor(item.image).width(600).height(400).url()}
                     alt=""
                     width={300}
                     height={200}
@@ -138,7 +139,7 @@ export default function OnePackageScreen({ Package }) {
                 </DialogTrigger>
                 <DialogContent>
                   <Image
-                    src={item.image}
+                    src={urlFor(item.image).width(600).height(400).url()}
                     alt="gallery"
                     width={1400}
                     height={800}

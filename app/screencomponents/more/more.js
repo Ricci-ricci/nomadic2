@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Container from "../bodycomponents/container";
+import { urlFor } from "@/lib/sanityClient";
 
 export default function More({ contents }) {
   return (
@@ -13,7 +14,7 @@ export default function More({ contents }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 text-black w-full">
         {contents.map((item, index) => (
           <Link
-            href={`/destinations/${item.slug}`}
+            href={`/destinations/${item.slug.current}`}
             className="flex flex-col gap-3 cursor-pointer group"
             key={index}
           >
@@ -21,7 +22,7 @@ export default function More({ contents }) {
             <div className="relative w-full h-64 md:h-80 lg:h-96 overflow-hidden rounded-lg p-4">
               <Image
                 className="transition-transform duration-300 group-hover:scale-105"
-                src={item.image}
+                src={urlFor(item.image).width(600).height(400).url()}
                 alt={item.title}
                 fill // Use fill to make the image fill the parent container
                 style={{ objectFit: "cover" }} // Ensures image covers the area without distortion

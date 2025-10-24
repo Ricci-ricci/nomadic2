@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Button } from "@/components/ui/button";
 import Header from "../header/header";
-import { Destination } from "@/lib/data/destination";
+import { sanityDestination } from "@/lib/data/destination";
 import Link from "next/link";
+import { urlFor } from "@/lib/sanityClient";
 
 export default function HeadCarousel() {
-  const data = Destination();
-
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [destinations, setDestinations] = useState([]);
 
   // Autoplay
   useEffect(() => {
@@ -19,6 +19,18 @@ export default function HeadCarousel() {
     const autoplay = setInterval(() => emblaApi.scrollNext(), 8000);
     return () => clearInterval(autoplay);
   }, [emblaApi]);
+  useEffect(() => {
+    async function fetchDestinations() {
+      try {
+        const data = await sanityDestination();
+        console.log(data);
+        setDestinations(data); // save data in state
+      } catch (error) {
+        console.error("Error fetching destinations:", error);
+      }
+    }
+    fetchDestinations();
+  }, []);
 
   // Update index on slide change
   useEffect(() => {
@@ -35,12 +47,12 @@ export default function HeadCarousel() {
       {/* Background carousel */}
       <div className="absolute inset-0 -z-10" ref={emblaRef}>
         <div className="flex h-full">
-          {data.map((item, index) => (
+          {destinations.map((item, index) => (
             <div
               key={index}
               className="flex-[0_0_100%] h-full bg-cover bg-center relative"
               style={{
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${item.image})`,
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${urlFor(item.image).width(600).height(400).url()})`,
               }}
             >
               <div className="absolute inset-0 h-full bg-black/30"></div>
@@ -54,13 +66,15 @@ export default function HeadCarousel() {
         {/* Title & Description */}
         <div className="flex flex-col gap-4 md:gap-6 max-w-xl md:max-w-4xl px-2 md:px-24">
           <h1 className="text-3xl sm:text-4xl md:text-7xl font-extrabold drop-shadow-lg transition-opacity duration-700">
-            {data[selectedIndex].title}
+            {destinations[selectedIndex]?.title}
           </h1>
-          <p className="text-sm sm:text-base md:text-xl line-clamp-6 font-light drop-shadow-lg max-w-6xl">
-            {data[selectedIndex].description}
+          <p className="text-sm sm:text-base md:text-xl line-clamp-6 font-light drop-shadow-lg max-w-6xl whitespace-pre-line">
+            {destinations[selectedIndex]?.description.replace(/\\n/g, "\n")}
           </p>
           <div className="flex flex-col gap-4">
-            <Link href={`/destinations/${data[selectedIndex].slug}`}>
+            <Link
+              href={`/destinations/${destinations[selectedIndex]?.slug.current}`}
+            >
               <Button className="bg-yellow-400 px-6 sm:px-8 py-2 text-sm sm:text-base text-white font-bold cursor-pointer w-fit">
                 See more
               </Button>

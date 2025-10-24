@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Container from "./container";
+import { urlFor } from "@/lib/sanityClient";
 
 export default function DestinationImage({ data }) {
   return (
@@ -8,7 +9,7 @@ export default function DestinationImage({ data }) {
         {/* Image principale */}
         <div className="flex-shrink-0 w-full lg:w-[70%]">
           <Image
-            src={data?.image}
+            src={urlFor(data.image).width(600).height(400).url()}
             alt="main-destination"
             width={800}
             height={800}
@@ -22,7 +23,7 @@ export default function DestinationImage({ data }) {
             {data.thumbnail.map((img, index) => (
               <Image
                 key={index}
-                src={img}
+                src={urlFor(img).width(600).height(400).url()}
                 alt={`thumbnail-${index}`}
                 width={300}
                 height={500}
@@ -41,7 +42,7 @@ export default function DestinationImage({ data }) {
           </div>
         </div>
         <p className="text-gray-600 text-lg md:text-xl leading-relaxed whitespace-pre-line ">
-          {data?.description}
+          {data?.description.replace(/\\n/g, "\n")}
         </p>
       </div>
     </Container>
