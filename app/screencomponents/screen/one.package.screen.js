@@ -110,7 +110,7 @@ export default function OnePackageScreen({ Package }) {
                   {item.day}
                 </AccordionTrigger>
                 <AccordionContent className="text-base md:text-lg whitespace-pre-line">
-                  {item.description}
+                  {item.description.replace(/\\n/g, "\n")}
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -168,9 +168,13 @@ export default function OnePackageScreen({ Package }) {
               {Package.price}
             </span>
             <span>Included: </span>
-            <span className="whitespace-pre-line">{Package.included}</span>
+            <span className="whitespace-pre-line">
+              {Package.included.replace(/\\n/g, "\n")}
+            </span>
             <span>Not Included: </span>
-            <span className="whitespace-pre-line">{Package.nonIncluded}</span>
+            <span className="whitespace-pre-line">
+              {Package.nonIncluded.replace(/\\n/g, "\n")}
+            </span>
 
             <Dialog>
               <DialogTrigger className="bg-yellow-400 cursor-pointer text-white font-bold py-2 px-4 rounded">
