@@ -110,7 +110,7 @@ export default function OnePackageScreen({ Package }) {
                   {item.day}
                 </AccordionTrigger>
                 <AccordionContent className="text-base md:text-lg whitespace-pre-line">
-                  {item.description.replace(/\\n/g, "\n")}
+                  {item?.description.replace(/\\n/g, "\n")}
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
