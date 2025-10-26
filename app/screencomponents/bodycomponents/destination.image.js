@@ -42,7 +42,7 @@ export default function DestinationImage({ data }) {
           </div>
         </div>
         <p className="text-gray-600 text-lg md:text-xl leading-relaxed whitespace-pre-line ">
-          {data?.description.replace(/\\n/g, "\n")}
+          {data?.description?.replace(/\\n/g, "\n") || ""}
         </p>
       </div>
     </Container>

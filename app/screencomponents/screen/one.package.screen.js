@@ -93,7 +93,7 @@ export default function OnePackageScreen({ Package }) {
         {/* Left Content */}
         <div className="flex flex-col gap-8 md:gap-4 md:w-2/3">
           <span className="text-base md:text-lg whitespace-pre-line">
-            {Package.description.replace(/\\n/g, "\n")}
+            {Package.description?.replace(/\\n/g, "\n") || ""}
           </span>
 
           {/* Itinerary */}
@@ -110,7 +110,7 @@ export default function OnePackageScreen({ Package }) {
                   {item.day}
                 </AccordionTrigger>
                 <AccordionContent className="text-base md:text-lg whitespace-pre-line">
-                  {item?.description.replace(/\\n/g, "\n")}
+                  {item.description?.replace(/\\n/g, "\n") || ""}
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -169,11 +169,11 @@ export default function OnePackageScreen({ Package }) {
             </span>
             <span>Included: </span>
             <span className="whitespace-pre-line">
-              {Package.included.replace(/\\n/g, "\n")}
+              {Package.included?.replace(/\\n/g, "\n") || ""}
             </span>
             <span>Not Included: </span>
             <span className="whitespace-pre-line">
-              {Package.nonIncluded.replace(/\\n/g, "\n")}
+              {Package.nonIncluded?.replace(/\\n/g, "\n") || ""}
             </span>
 
             <Dialog>
