@@ -54,11 +54,11 @@ export default function BookDialog({ Package }) {
   return (
     <div className=" p-4 md:p-6 w-full max-w-md mx-auto h-full flex flex-col md:gap-4 gap-24">
       <div className="flex flex-col md:flex-col sm:flex-row sm:items-center md:items-start sm:justify-between gap-3">
-        <span className="text-2xl md:text-2xl font-bold text-gray-900 text-center sm:text-left">
+        <span className="text-xl md:text-xl font-bold text-gray-900 text-center sm:text-left">
           {Package.title}
         </span>
         <span className="text-xl md:text-2xl text-yellow-500 font-extrabold text-center sm:text-right">
-          {Package.price} $
+          {Package.price}
         </span>
       </div>
 

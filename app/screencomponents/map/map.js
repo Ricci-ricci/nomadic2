@@ -63,6 +63,7 @@ export function RouteMap({ start, end }) {
       waypoints: [startPoints, endPoints],
       router: L.Routing.osrmv1({
         serviceUrl: "https://router.project-osrm.org/route/v1",
+        coordinates: "true",
       }),
       lineOptions: {
         styles: [{ color: "#0078ff", weight: 4 }],
@@ -72,7 +73,7 @@ export function RouteMap({ start, end }) {
       addWaypoints: false,
       fitSelectedRoutes: true,
       show: false,
-      language: "fr",
+      language: "en",
       createMarker: createMarker,
     }).addTo(map);
 
