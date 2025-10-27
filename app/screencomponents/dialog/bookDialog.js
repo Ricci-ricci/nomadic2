@@ -68,7 +68,7 @@ export default function BookDialog({ Package }) {
             Included:
           </span>
           <span className="text-sm md:text-xs text-gray-600 whitespace-pre-line leading-relaxed">
-            {Package.included}
+            {Package.included?.replace(/\\n/g, "\n") || ""}
           </span>
         </div>
 
@@ -77,7 +77,7 @@ export default function BookDialog({ Package }) {
             Not Included:
           </span>
           <span className="text-sm md:text-xs text-gray-600 whitespace-pre-line leading-relaxed">
-            {Package.notIncluded}
+            {Package.notIncluded?.replace(/\\n/g, "\n") || ""}
           </span>
         </div>
       </div>
