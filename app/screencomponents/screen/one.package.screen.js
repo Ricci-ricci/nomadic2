@@ -173,7 +173,7 @@ export default function OnePackageScreen({ Package }) {
             </span>
             <span>Not Included: </span>
             <span className="whitespace-pre-line">
-              {Package.nonIncluded?.replace(/\\n/g, "\n") || ""}
+              {Package.notIncluded?.replace(/\\n/g, "\n") || ""}
             </span>
 
             <Dialog>
