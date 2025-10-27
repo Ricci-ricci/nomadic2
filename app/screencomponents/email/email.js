@@ -24,16 +24,12 @@ export default function Email({ handleSend }) {
   return (
     <div className="w-full max-w-md mx-auto text-center p-6 bg-white rounded-2xl shadow-md">
       <h2 className="text-xl font-semibold mb-3">
-        Veuillez nous fournir votre e-mail
+        Can you provide us your email
       </h2>
-      <p className="text-gray-600 mb-5">
-        Pour que nous puissions vous contacter dès que possible.
-      </p>
+      <p className="text-gray-600 mb-5">so we can contact you</p>
 
       {sent ? (
-        <p className="text-green-600 font-semibold">
-          Merci ! Votre e-mail a bien été envoyé.
-        </p>
+        <p className="text-green-600 font-semibold">Email sent!!</p>
       ) : (
         <form onSubmit={handleSubmit} className="flex gap-2 flex-col">
           <input

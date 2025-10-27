@@ -62,7 +62,7 @@ export default function BookDialog({ Package }) {
         </span>
       </div>
 
-      <div className="bg-gray-50 rounded-lg max-h-[300px] p-4 md:p-5 hidden md:flex md:flex-row flex-col gap-3 border border-gray-200 shadow-sm overflow-x-auto">
+      <div className="bg-gray-50 rounded-lg max-h-[300px] p-4 md:p-5 flex md:flex md:flex-row flex-col gap-3 border border-gray-200 shadow-sm overflow-x-auto">
         <div>
           <span className="text-md md:text-base font-semibold mb-1 text-gray-700 block">
             Included:
