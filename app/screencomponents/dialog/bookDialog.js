@@ -26,10 +26,10 @@ export default function BookDialog({ Package }) {
 
       const data = await res.json();
       if (data.success) setSent(true);
-      else alert("Erreur lors de l’envoi de la réservation");
+      else alert("Error while sending");
     } catch (error) {
       console.error(error);
-      alert("Impossible d’envoyer la réservation");
+      alert("it was not possible sending your request");
     } finally {
       setLoading(false);
     }
@@ -41,7 +41,7 @@ export default function BookDialog({ Package }) {
       <div className="p-4 md:p-6 w-full max-w-md mx-auto h-full overflow-y-auto">
         {sent ? (
           <p className="text-green-600 text-center font-semibold text-base md:text-lg">
-            🎉 Votre demande de réservation a été envoyée avec succès !
+            🎉 Your Booking request has been send succesfully
           </p>
         ) : (
           <Email handleSend={sendBooking} />
