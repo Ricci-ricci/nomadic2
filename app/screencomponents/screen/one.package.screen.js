@@ -221,7 +221,7 @@ export default function OnePackageScreen({ Package }) {
                   variant="outline"
                   className="w-full font-bold py-6 text-lg rounded-xl border-2 hover:border-yellow-400 hover:text-yellow-600 transition-all"
                 >
-                  Personnaliser
+                  Customize
                 </Button>
               </Link>
             </div>
