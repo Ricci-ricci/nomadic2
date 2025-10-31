@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { sanityDestination } from "@/lib/data/destination";
 
-export default function Footer() {
+export default async function Footer() {
+  const destinations = await sanityDestination();
   const footerData = {
     slogan: "Travel beyond your imagination with our travel agency",
     address: {
@@ -41,9 +43,19 @@ export default function Footer() {
       </div>
 
       {/* Address */}
-      <Link href="/policy" className="font-bold">
-        {footerData.address.faqandprivacy}
-      </Link>
+      <div className="flex  flex-col gap-2 text-sm">
+        <span className="text-lg font-bold">Destination</span>
+        {destinations.map((items, index) => (
+          <Link
+            href={`/destinations/${items.slug.current}`}
+            key={index}
+            className="font-normal cursor-pointer"
+          >
+            {items.title}
+          </Link>
+        ))}
+      </div>
+
       <div className="flex flex-col gap-3 md:gap-4">
         <Link href="/contact" className="font-bold text-lg md:text-xl">
           Address
@@ -115,6 +127,9 @@ export default function Footer() {
             </svg>
           </Link>
         </div>
+        <Link href="/policy" className="font-bold text-md md:text-lg">
+          {footerData.address.faqandprivacy}
+        </Link>
       </div>
 
       {/* Logo + Text + Autorisation */}

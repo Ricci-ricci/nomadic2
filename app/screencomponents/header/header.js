@@ -10,10 +10,17 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import Link from "next/link";
 
 export default function Header({ menuColor, logo, button }) {
   const MENU = [
-    { label: "Logo", type: "logo", image: "/logo.png", href: "/" },
+    {
+      label: "Logo",
+      type: "logo",
+      image: "/logo.png",
+      href: "/",
+      name: "Nomadic",
+    },
     { label: "Home", type: "link", href: "/" },
     { label: "Services", type: "link", href: "/services" },
     { label: "Destination", type: "link", href: "/destination" },
@@ -44,9 +51,16 @@ export default function Header({ menuColor, logo, button }) {
       {/* Logo (always visible, left side) */}
       <div className="flex-1 flex justify-start">
         {MENU.filter((item) => item.type === "logo").map((item, i) => (
-          <a key={i} href={item.href} className={`text-2xl font-bold ${logo}`}>
+          <Link
+            key={i}
+            href={item.href}
+            className={`text-2xl font-bold flex flex-row items-center justify-center gap-4 ${logo}`}
+          >
             <Image src={item.image} alt="Logo" width={100} height={100} />
-          </a>
+            <span className="text-white text-lg md:text-4xl font-edu-vic">
+              {item.name}
+            </span>
+          </Link>
         ))}
       </div>
 
