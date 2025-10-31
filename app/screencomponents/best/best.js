@@ -20,7 +20,7 @@ export default async function BestDestination() {
         {/* Right side: image */}
         <div className="md:w-1/2 flex justify-center">
           <Image
-            src={destinations.image}
+            src={urlFor(destinations.image).width(600).height(400).url()}
             alt={destinations.title}
             width={500}
             height={300}
@@ -32,16 +32,6 @@ export default async function BestDestination() {
           <h2 className="text-2xl md:text-4xl font-bold text-black uppercase">
             {destinations.title}
           </h2>
-
-          <div className="flex flex-col gap-1">
-            <span className="text-black font-bold text-xl">
-              {destinations.description1}.
-            </span>
-            <span className=" text-gray-600 text-lg">
-              {destinations.description2}
-            </span>
-          </div>
-
           <p className="text-gray-600 text-lg line-clamp-7 whitespace-pre-line italic">
             {destinations.description}
           </p>
