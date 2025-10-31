@@ -2,11 +2,11 @@ import Image from "next/image";
 import Container from "../bodycomponents/container";
 import Link from "next/link";
 import getSanityBest from "@/lib/data/sanitybest";
+import { urlFor } from "@/lib/sanityClient";
 
 export default async function BestDestination() {
   const TXT2 = "One of our flagship destination :";
   const destinations = await getSanityBest();
-
   return (
     <Container classname="flex flex-col gap-8 p-4">
       <div className="flex w-full flex-col gap-4">
