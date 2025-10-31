@@ -46,11 +46,11 @@ export default function DestinationChoice({ selected = [], onChange }) {
       <div className="w-full max-w-7xl md:p-4">
         <Carousel className="w-full">
           <CarouselContent className="flex items-center justify-center md:p-12 gap-4 ">
-            {destinations.map((item) => {
+            {destinations.map((item, index) => {
               const isSelected = selected.includes(item.title);
               return (
                 <CarouselItem
-                  key={item.id}
+                  key={index}
                   className="basis-full sm:basis-1/2 lg:basis-1/5 md:basis-1/6 flex justify-center "
                 >
                   <div

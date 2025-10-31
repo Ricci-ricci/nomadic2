@@ -194,8 +194,6 @@ export default function Customise() {
           </DialogContent>
         </Dialog>
       </div>
-
-      <Footer />
     </div>
   );
 }
