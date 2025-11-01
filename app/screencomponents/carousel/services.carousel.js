@@ -20,6 +20,7 @@ import {
 import { Check } from "lucide-react"; // ✅ Replaced Eye with Check
 import { useState, useEffect } from "react";
 import Email from "../email/email";
+import { urlFor } from "@/lib/sanityClient";
 
 export default function ServicesCarousel({ contents }) {
   const [api, setApi] = useState(null);

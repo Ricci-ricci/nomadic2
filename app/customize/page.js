@@ -6,7 +6,7 @@ import BudgetChoice from "../screencomponents/choice/budget.choice";
 import DurationChoice from "../screencomponents/choice/time.choice";
 import Header from "../screencomponents/header/header";
 import Footer from "../screencomponents/footer/footer";
-
+import { sanityDestination } from "@/lib/data/destination";
 import { CheckCircle } from "lucide-react";
 import {
   Dialog,
@@ -19,8 +19,23 @@ import {
 import Email from "../screencomponents/email/email";
 import { CalendarDemo } from "../screencomponents/choice/date.choice";
 import TravelersSelector from "../screencomponents/choice/voyager";
+import { useEffect } from "react";
 
 export default function Customise() {
+  const [destinations, setDestinations] = useState([]);
+
+  useEffect(() => {
+    async function fetchDestinations() {
+      try {
+        const data = await sanityDestination();
+        console.log(data);
+        setDestinations(data);
+      } catch (error) {
+        console.error("Error fetching destinations:", error);
+      }
+    }
+    fetchDestinations();
+  }, []);
   const [choices, setChoices] = useState({
     destinations: [],
     budget: null,
@@ -134,6 +149,7 @@ export default function Customise() {
         <DestinationChoice
           selected={choices.destinations}
           onChange={(value) => updateChoice("destinations", value)}
+          data={destinations}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-6xl">

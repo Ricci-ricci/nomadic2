@@ -65,7 +65,7 @@ export default function HeadCarousel() {
       <div className="relative z-10 flex flex-col justify-end items-start h-full p-4 md:p-8 text-white">
         {/* Title & Description */}
         <div className="flex flex-col gap-4 md:gap-6 max-w-xl md:max-w-4xl px-2 md:px-24">
-          <h1 className="text-3xl sm:text-4xl md:text-7xl font-extrabold drop-shadow-lg transition-opacity duration-700">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold drop-shadow-lg transition-opacity duration-700">
             {destinations[selectedIndex]?.title}
           </h1>
           <p className="text-sm sm:text-base md:text-xl line-clamp-6 font-light drop-shadow-lg max-w-6xl whitespace-pre-line">
