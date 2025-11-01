@@ -27,13 +27,6 @@ const guide = [
     image: `/patrice.jpg`,
   },
   {
-    title: "Nambinina ",
-    skills: "English-Speaking Tour Guide",
-    description:
-      "Nambinina is a specialist in guiding and accompanying groups across Madagascar.\n Passionate about the island’s unique biodiversity, he shares his knowledge with enthusiasm. \n Known for his sense of humor, he ensures that every journey is not only informative but also full of joy.",
-    image: `/nambinina.jpg`,
-  },
-  {
     title: "Justin",
     skills: "Trekking & Climbing Specialist",
     description:

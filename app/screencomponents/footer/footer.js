@@ -56,26 +56,50 @@ export default async function Footer() {
         ))}
       </div>
 
-      <div className="flex flex-col gap-3 md:gap-4">
-        <Link href="/contact" className="font-bold text-lg md:text-xl">
-          Address
-        </Link>
-        <span>{footerData.address.line1}</span>
-        <span>{footerData.address.city}</span>
-        <span>{footerData.address.area}</span>
-      </div>
-
       {/* Contact */}
-      <div className="flex flex-col gap-3 md:gap-4">
+      <div className="flex flex-col">
         <Link href="/contact" className="font-bold text-lg md:text-xl">
           Contact
         </Link>
-        <span>{footerData.contact.phone}</span>
-        <span>{footerData.contact.email}</span>
+        <div className="flex flex-col p-4 gap-4">
+          <span>{footerData.contact.phone}</span>
+          <span>{footerData.contact.email}</span>
+        </div>
+        <div className="flex flex-col">
+          <Link href="/contact" className="font-bold text-lg md:text-xl">
+            Address
+          </Link>
+          <div className="flex flex-col p-4 gap-2">
+            <span>{footerData.address.line1}</span>
+            <span>{footerData.address.city}</span>
+            <span>{footerData.address.area}</span>
+          </div>
+        </div>
 
         {/* Social buttons without background */}
-        <div className="flex gap-3 mt-2 text-white">
-          {/* WhatsApp */}
+        <div className="flex gap-3 mt-2 text-white">{/* WhatsApp */}</div>
+        <Link href="/policy" className="font-bold text-md md:text-lg">
+          {footerData.address.faqandprivacy}
+        </Link>
+      </div>
+
+      {/* Logo + Text + Autorisation */}
+      <div className="flex flex-col justify-center items-center text-center gap-2">
+        <Image
+          src="/footer/logo.png"
+          alt="Logo"
+          width={180}
+          height={180}
+          className="object-contain"
+        />
+        <span className="mt-2 text-sm text-white">{footerData.logoText}</span>
+        <span className="mt-1 text-xs text-white">
+          {footerData.autorisation.autorisation1}
+        </span>
+        <span className="text-xs text-white">
+          {footerData.autorisation.autorisation2}
+        </span>
+        <div className="flex flex-row gap-2">
           <Link
             href={`${footerData.contact.whatsapp}`}
             target="_blank"
@@ -127,27 +151,6 @@ export default async function Footer() {
             </svg>
           </Link>
         </div>
-        <Link href="/policy" className="font-bold text-md md:text-lg">
-          {footerData.address.faqandprivacy}
-        </Link>
-      </div>
-
-      {/* Logo + Text + Autorisation */}
-      <div className="flex flex-col justify-center items-center text-center">
-        <Image
-          src="/footer/logo.png"
-          alt="Logo"
-          width={180}
-          height={180}
-          className="object-contain"
-        />
-        <span className="mt-2 text-sm text-white">{footerData.logoText}</span>
-        <span className="mt-1 text-xs text-white">
-          {footerData.autorisation.autorisation1}
-        </span>
-        <span className="text-xs text-white">
-          {footerData.autorisation.autorisation2}
-        </span>
       </div>
     </div>
   );
