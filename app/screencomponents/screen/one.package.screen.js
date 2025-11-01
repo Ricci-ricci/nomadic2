@@ -158,7 +158,7 @@ export default function OnePackageScreen({ Package }) {
         </div>
 
         {/* Right Sidebar: Booking & Map */}
-        <aside className="lg:col-span-1 space-y-6">
+        <aside className="lg:col-span-1 space-y-6 z-10">
           {/* Map */}
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
             <div className="p-4 border-b border-gray-200 flex items-center gap-2">
