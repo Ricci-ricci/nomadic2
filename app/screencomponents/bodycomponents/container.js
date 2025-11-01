@@ -6,7 +6,7 @@ export default function Container({ children, classname = "" }) {
       initial={{ x: -300, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
       transition={{ duration: 1 }}
-      className={`container mx-auto px-4 py-8 md:py-12 flex items-center  justify-center max-w-[1920px]  flex-col ${classname}`}
+      className={`container mx-auto px-4 py-8 md:py-12 flex items-center gap-12 justify-center max-w-[1920px]  flex-col ${classname}`}
     >
       {children}
     </motion.div>
