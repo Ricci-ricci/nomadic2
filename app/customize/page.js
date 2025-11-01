@@ -154,12 +154,12 @@ export default function Customise() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-6xl">
           <CalendarDemo
-            day="Departure"
+            day="Arrival"
             selectedDate={choices.departureDate}
             onChange={(date) => updateChoice("departureDate", date)}
           />
           <CalendarDemo
-            day="Arrival"
+            day="Departure"
             selectedDate={choices.arrivalDate}
             onChange={(date) => updateChoice("arrivalDate", date)}
           />

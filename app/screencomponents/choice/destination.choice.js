@@ -54,7 +54,7 @@ export default function DestinationChoice({
             setApi={setApi}
             className="w-full flex items-center justify-center flex-col"
           >
-            <CarouselContent className="flex w-[200vh] gap-6 p-4">
+            <CarouselContent className="flex w-screen gap-6 p-4">
               {data.map((item, index) => {
                 const isSelected = selected.includes(item.title);
                 const imageUrl = item.image

@@ -19,7 +19,7 @@ export default function Header({ menuColor, logo, button }) {
       type: "logo",
       image: "/logo.png",
       href: "/",
-      name: "NomadicZebu",
+      name: "Nomadic Zebu MDG",
     },
     { label: "Home", type: "link", href: "/" },
     { label: "Services", type: "link", href: "/services" },
@@ -57,7 +57,7 @@ export default function Header({ menuColor, logo, button }) {
             className={`text-2xl font-bold flex flex-row items-center justify-center gap-4 ${logo}`}
           >
             <Image src={item.image} alt="Logo" width={100} height={100} />
-            <span className="text-white text-lg md:text-4xl font-edu-vic">
+            <span className="text-white text-lg md:text-2xl font-edu-vic">
               {item.name}
             </span>
           </Link>
