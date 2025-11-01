@@ -49,7 +49,7 @@ export default async function Footer() {
           <Link
             href={`/destinations/${items.slug.current}`}
             key={index}
-            className="font-normal cursor-pointer"
+            className="font-normal cursor-pointer capitalize "
           >
             {items.title}
           </Link>
