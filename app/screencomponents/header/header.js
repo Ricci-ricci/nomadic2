@@ -19,7 +19,7 @@ export default function Header({ menuColor, logo, button }) {
       type: "logo",
       image: "/logo.png",
       href: "/",
-      name: "Nomadic",
+      name: "NomadicZebu",
     },
     { label: "Home", type: "link", href: "/" },
     { label: "Services", type: "link", href: "/services" },
