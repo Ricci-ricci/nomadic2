@@ -176,7 +176,7 @@ export default function Customise() {
         />
 
         {/* Personal Request Input */}
-        <div className="flex flex-col items-center w-full max-w-2xl gap-3">
+        <div className="flex flex-col items-center w-full max-w-2xl gap-3 p-12">
           <label
             htmlFor="personalNote"
             className="text-lg font-semibold text-gray-700"
